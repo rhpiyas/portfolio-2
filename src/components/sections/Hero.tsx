@@ -2,11 +2,11 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import Image from "next/image";
 import { profile } from "@/data/profile";
 import { smoothScrollTo } from "@/lib/hooks";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import { GithubIcon, LinkedinIcon, InstagramIcon } from "@/components/ui/Icons";
 
 export default function Hero() {
   const skills = useMemo(
@@ -176,44 +176,66 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-center gap-4 mt-8 pt-8 border-t border-slate-800/80 w-full"
+              className="flex flex-wrap items-center gap-2.5 sm:gap-3 mt-8 pt-8 border-t border-slate-800/80 w-full"
             >
-              <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold">
+              <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold mr-1">
                 Connect:
               </span>
 
               <a
-                href={profile.social.github}
+                href={profile.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 transition-colors"
-                aria-label="GitHub profile"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-colors text-xs font-medium"
+                aria-label="Instagram profile"
               >
-                <GithubIcon size={18} />
+                <InstagramIcon size={15} />
+                <span>Instagram</span>
               </a>
 
               <a
                 href={profile.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-colors text-xs font-medium"
                 aria-label="LinkedIn profile"
               >
-                <LinkedinIcon size={18} />
+                <LinkedinIcon size={15} />
+                <span>LinkedIn</span>
+              </a>
+
+              <a
+                href={`mailto:${profile.email}`}
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-colors text-xs font-medium"
+                aria-label="Send email"
+              >
+                <Mail size={15} />
+                <span>Email</span>
+              </a>
+
+              <a
+                href={profile.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-colors text-xs font-medium"
+                aria-label="GitHub profile"
+              >
+                <GithubIcon size={15} />
+                <span>GitHub</span>
               </a>
 
               <a
                 href={profile.social.codeforces}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 transition-colors text-xs font-medium"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-900/90 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-colors text-xs font-medium"
                 aria-label="Codeforces profile"
               >
                 <Image
                   src="/images/common/codeforces.png"
                   alt="Codeforces"
-                  width={16}
-                  height={16}
+                  width={15}
+                  height={15}
                   className="rounded-xs"
                 />
                 <span>Codeforces</span>
