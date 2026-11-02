@@ -14,7 +14,6 @@ const navItems: NavItem[] = [
   { label: "Home", sectionId: "hero" },
   { label: "About", sectionId: "about" },
   { label: "Skills", sectionId: "skills" },
-  { label: "Experience", sectionId: "experience" },
   { label: "Education", sectionId: "education" },
   { label: "Projects", sectionId: "projects" },
   { label: "Achievements", sectionId: "achievements" },
