@@ -1,4 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
+
+.font-typewriter {
+  font-family: "Courier Prime", "Courier New", Courier, "Lucida Console", Monaco, monospace;
+}
 
 :root {
   --background: #0a0f1a;

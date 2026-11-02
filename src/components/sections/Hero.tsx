@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import Image from "next/image";
@@ -8,6 +9,49 @@ import { smoothScrollTo } from "@/lib/hooks";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 
 export default function Hero() {
+  const skills = useMemo(
+    () => [
+      "Competitive Problem Solver",
+      "Full Stack Developer",
+      "Deep Researcher",
+      "Open Source Enthusiast",
+      "AI/ML Enthusiast",
+    ],
+    []
+  );
+
+  const [skillIndex, setSkillIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const fullText = skills[skillIndex];
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting) {
+      if (displayText.length < fullText.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(fullText.slice(0, displayText.length + 1));
+        }, 85);
+      } else {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 1800);
+      }
+    } else {
+      if (displayText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(fullText.slice(0, displayText.length - 1));
+        }, 40);
+      } else {
+        setIsDeleting(false);
+        setSkillIndex((prev) => (prev + 1) % skills.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, skillIndex, skills]);
+
   return (
     <section
       id="hero"
@@ -65,18 +109,18 @@ export default function Hero() {
               {profile.title}
             </motion.p>
 
-            {/* Introduction paragraph */}
-            <motion.p
+            {/* Animated Typing Skills */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-slate-400 text-base sm:text-lg leading-relaxed mt-4 max-w-xl"
+              className="mt-5 flex items-center min-h-[40px]"
             >
-              Software Engineering undergraduate at Daffodil International
-              University with a passion for building full-stack web applications,
-              solving competitive algorithmic problems, and exploring artificial
-              intelligence to build scalable, meaningful solutions.
-            </motion.p>
+              <span className="font-typewriter text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-sky-400">
+                {displayText}
+              </span>
+              <span className="inline-block w-2 h-6 sm:h-7 bg-cyan-400 animate-pulse ml-2 rounded-xs" />
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
