@@ -55,7 +55,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0a0f1a]"
+      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0a0f1a] border-b border-white/10"
     >
       {/* Subtle background glow & radial gradient */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

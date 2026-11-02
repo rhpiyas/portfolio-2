@@ -41,7 +41,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-[#060a12] border-t border-white/5">
+      <footer className="bg-[#060a12]">
         <div className="max-w-6xl mx-auto py-12 px-6">
           {/* Top Row */}
           <div className="flex items-center justify-between">

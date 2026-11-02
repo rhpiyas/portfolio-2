@@ -16,7 +16,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="py-24 bg-[#0a0f1a] relative">
+    <section id="projects" className="py-16 sm:py-20 bg-[#0a0f1a] relative border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Featured Projects"

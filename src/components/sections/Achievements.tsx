@@ -15,7 +15,7 @@ export default function Achievements() {
   } | null>(null);
 
   return (
-    <section id="achievements" className="py-24 bg-[#080d16] relative">
+    <section id="achievements" className="py-16 sm:py-20 bg-[#080d16] relative border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Achievements & Certifications"
