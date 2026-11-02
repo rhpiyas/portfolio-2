@@ -205,10 +205,10 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative w-full max-w-sm"
             >
-              {/* Decorative back element */}
-              <div className="absolute -inset-1.5 bg-gradient-to-tr from-blue-600/30 to-cyan-500/30 rounded-2xl blur-lg opacity-70 group-hover:opacity-100 transition duration-1000" />
-
-              <div className="relative rounded-2xl bg-gradient-to-b from-[#111c2e] to-[#0d1522] border border-slate-800/80 p-6 shadow-2xl">
+              {/* 3D Elevated Profile Card without neon glow */}
+              <div className="relative rounded-2xl bg-gradient-to-b from-[#131e30] via-[#0f1726] to-[#0a111c] border border-slate-700/60 p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_12px_28px_-8px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-slate-600/80 hover:-translate-y-1">
+                {/* 3D Top Rim Light */}
+                <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-white/25 to-transparent rounded-t-2xl pointer-events-none" />
                 {/* Photo with subtle border */}
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-6 bg-slate-900">
                   <Image

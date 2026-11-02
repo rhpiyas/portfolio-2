@@ -50,9 +50,9 @@ export default function Navbar() {
           {/* Brand */}
           <button
             onClick={() => handleNavClick("hero")}
-            className="text-xl font-bold text-white"
+            className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight cursor-pointer whitespace-nowrap"
           >
-            Piyas<span className="text-blue-500">.</span>
+            Rakib Hasan Piyas
           </button>
 
           {/* Desktop Navigation */}

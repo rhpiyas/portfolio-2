@@ -47,9 +47,9 @@ export default function Footer() {
           <div className="flex items-center justify-between">
             <button
               onClick={() => smoothScrollTo("hero")}
-              className="text-xl font-bold text-white cursor-pointer"
+              className="text-lg sm:text-xl font-bold text-white cursor-pointer tracking-tight"
             >
-              Piyas<span className="text-blue-500">.</span>
+              Rakib Hasan Piyas
             </button>
 
             <div className="flex items-center gap-3">
