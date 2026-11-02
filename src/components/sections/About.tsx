@@ -1,20 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
-  MapPin,
   GraduationCap,
   Code2,
-  BrainCircuit,
   Trophy,
   GitBranch,
-  Calendar,
-  CheckCircle2,
+  MapPin,
+  Building2,
+  Award,
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { profile } from "@/data/profile";
-import { fadeInUp, slideInLeft, slideInRight } from "@/lib/animations";
+import { fadeInUp } from "@/lib/animations";
 
 export default function About() {
   const highlights = [
@@ -52,104 +50,81 @@ export default function About() {
           subtitle="A passionate Software Engineering student dedicated to continuous technical growth, practical software architecture, and problem-solving."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-12">
-          {/* Left Column: Image & Quick Details */}
-          <motion.div
-            variants={slideInLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-5"
-          >
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl aspect-[4/5]">
-                <Image
-                  src="/images/profile/profile-img.jpeg"
-                  alt="Rakib Hasan Piyas portrait"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 420px"
-                  className="object-cover object-center"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1a] via-transparent to-transparent opacity-80" />
+        {/* Main Bio Container */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-12 p-8 sm:p-10 rounded-2xl bg-[#0e1624] border border-slate-800/80 shadow-xl space-y-8"
+        >
+          <div className="space-y-5 text-slate-300 leading-relaxed text-base sm:text-lg">
+            <p>
+              I am <span className="text-white font-semibold">{profile.name}</span>,
+              currently pursuing a Bachelor of Science in Software Engineering at{" "}
+              <span className="text-blue-400 font-medium">
+                Daffodil International University
+              </span>
+              . My engineering journey is fueled by a strong enthusiasm for building practical software, mastering data structures & algorithms, and architecting real-world applications.
+            </p>
 
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-800/80">
-                  <div className="text-white font-semibold text-base">{profile.name}</div>
-                  <div className="text-cyan-400 text-xs font-medium mt-0.5">
-                    Software Engineering Student
-                  </div>
-                  <div className="flex items-center gap-1.5 text-slate-400 text-xs mt-2">
-                    <MapPin size={13} className="text-blue-400" />
-                    <span>Dhaka, Bangladesh</span>
-                  </div>
-                </div>
-              </div>
+            <p className="text-slate-400 text-base">
+              My primary focus revolves around full-stack web development, algorithmic
+              problem solving on platforms like Codeforces, and delving into Artificial
+              Intelligence. I enjoy dissecting complex systems into modular, scalable
+              components—from embedded IoT devices to distributed web systems.
+            </p>
+
+            <div className="p-5 rounded-xl bg-slate-900/80 border border-slate-800 text-sm sm:text-base text-slate-300 italic border-l-4 border-l-blue-500">
+              &ldquo;I believe continuous learning and hands-on implementation are the
+              cornerstones of engineering excellence. My goal is to build intelligent,
+              impactful software that makes a tangible difference.&rdquo;
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right Column: Bio & Core Focus */}
-          <motion.div
-            variants={slideInRight}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-7 flex flex-col justify-center space-y-6"
-          >
-            <div className="space-y-4 text-slate-300 leading-relaxed text-base">
-              <p>
-                I am <span className="text-white font-semibold">{profile.name}</span>,
-                currently pursuing a Bachelor of Science in Software Engineering at{" "}
-                <span className="text-blue-400 font-medium">
-                  Daffodil International University
-                </span>
-                . My engineering journey is fueled by a strong enthusiasm for building practical software, mastering data structures & algorithms, and architecting real-world applications.
-              </p>
-
-              <p className="text-slate-400">
-                My primary focus revolves around full-stack web development, algorithmic
-                problem solving on platforms like Codeforces, and delving into Artificial
-                Intelligence. I enjoy dissecting complex systems into modular, scalable
-                components—from embedded IoT devices to distributed web systems.
-              </p>
-
-              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 text-sm text-slate-300 italic border-l-4 border-l-blue-500">
-                &ldquo;I believe continuous learning and hands-on implementation are the
-                cornerstones of engineering excellence. My goal is to build intelligent,
-                impactful software that makes a tangible difference.&rdquo;
+          {/* Quick Fact Badges */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-slate-800/80">
+            <div className="flex items-center gap-3 text-sm text-slate-300 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80">
+              <Building2 size={18} className="text-blue-400 shrink-0" />
+              <div>
+                <span className="text-slate-400 text-xs block">University</span>
+                <strong className="text-white font-medium text-xs sm:text-sm">
+                  Daffodil Int. Univ.
+                </strong>
               </div>
             </div>
 
-            {/* Quick Fact Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
-                <span>
-                  <strong className="text-white font-medium">University:</strong> Daffodil Int. Univ.
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
-                <span>
-                  <strong className="text-white font-medium">Location:</strong> Dhaka, Bangladesh
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
-                <span>
-                  <strong className="text-white font-medium">Degree:</strong> B.Sc. in Software Eng.
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2.5 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
-                <span>
-                  <strong className="text-white font-medium">CGPA:</strong> 3.98 / 4.00 (Ongoing)
-                </span>
+            <div className="flex items-center gap-3 text-sm text-slate-300 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80">
+              <MapPin size={18} className="text-cyan-400 shrink-0" />
+              <div>
+                <span className="text-slate-400 text-xs block">Location</span>
+                <strong className="text-white font-medium text-xs sm:text-sm">
+                  Dhaka, Bangladesh
+                </strong>
               </div>
             </div>
-          </motion.div>
-        </div>
+
+            <div className="flex items-center gap-3 text-sm text-slate-300 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80">
+              <GraduationCap size={18} className="text-blue-400 shrink-0" />
+              <div>
+                <span className="text-slate-400 text-xs block">Degree</span>
+                <strong className="text-white font-medium text-xs sm:text-sm">
+                  B.Sc. in Software Eng.
+                </strong>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 text-sm text-slate-300 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800/80">
+              <Award size={18} className="text-emerald-400 shrink-0" />
+              <div>
+                <span className="text-slate-400 text-xs block">Current CGPA</span>
+                <strong className="text-white font-medium text-xs sm:text-sm">
+                  3.98 / 4.00
+                </strong>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Highlights Grid */}
         <motion.div
@@ -157,7 +132,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8"
         >
           {highlights.map((item, idx) => {
             const Icon = item.icon;
@@ -184,4 +159,3 @@ export default function About() {
     </section>
   );
 }
-

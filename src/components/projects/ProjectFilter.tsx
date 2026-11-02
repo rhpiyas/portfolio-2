@@ -14,7 +14,7 @@ export default function ProjectFilter({
   onSelectCategory,
 }: ProjectFilterProps) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+    <div className="flex flex-wrap items-center justify-start gap-2 mb-12">
       {categories.map((cat) => {
         const isActive = activeCategory === cat.id;
         return (

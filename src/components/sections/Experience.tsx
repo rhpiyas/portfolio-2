@@ -22,7 +22,7 @@ export default function Experience() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-4xl mx-auto mt-12 relative border-l-2 border-slate-800 ml-4 sm:ml-8 md:ml-auto space-y-12 pl-6 sm:pl-8"
+          className="mt-12 relative border-l-2 border-slate-800 ml-4 sm:ml-6 space-y-12 pl-6 sm:pl-8 max-w-4xl"
         >
           {experiences.map((exp, idx) => {
             const Icon = icons[idx % icons.length];
