@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import Image from "next/image";
 import { profile } from "@/data/profile";
@@ -51,6 +51,30 @@ export default function Hero() {
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, skillIndex, skills]);
+
+  // 3D Interactive Mouse Tilt Physics (Subtle & Smooth)
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { stiffness: 180, damping: 24 };
+  const smoothMouseX = useSpring(mouseX, springConfig);
+  const smoothMouseY = useSpring(mouseY, springConfig);
+
+  const rotateX = useTransform(smoothMouseY, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(smoothMouseX, [-0.5, 0.5], ["-5deg", "5deg"]);
+
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+    const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(xPct);
+    mouseY.set(yPct);
+  };
+
+  const handleCardMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   return (
     <section
@@ -197,40 +221,51 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right / Profile Card Visual */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Right / Profile Card Visual with Interactive 3D Mouse Parallax */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end [perspective:1000px]">
             <motion.div
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
+              style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+              }}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="relative w-full max-w-sm"
+              className="relative w-full max-w-sm cursor-pointer select-none"
             >
-              {/* 3D Elevated Profile Card without neon glow */}
-              <div className="relative rounded-2xl bg-gradient-to-b from-[#131e30] via-[#0f1726] to-[#0a111c] border border-slate-700/60 p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_12px_28px_-8px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-slate-600/80 hover:-translate-y-1">
+              {/* 3D Elevated Profile Card */}
+              <div
+                style={{ transformStyle: "preserve-3d" }}
+                className="relative rounded-2xl bg-gradient-to-b from-[#131e30] via-[#0f1726] to-[#0a111c] border border-slate-700/60 p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_12px_28px_-8px_rgba(0,0,0,0.7)] transition-colors duration-300 hover:border-slate-500/80"
+              >
                 {/* 3D Top Rim Light */}
                 <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-white/25 to-transparent rounded-t-2xl pointer-events-none" />
-                {/* Photo with subtle border */}
-                <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-6 bg-slate-900">
+
+                {/* Photo (fixed & aligned with block) */}
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-6 bg-slate-900 border border-slate-800/80 shadow-md">
                   <Image
                     src="/images/profile/my-profile-img.jpeg"
                     alt="Rakib Hasan Piyas"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
                     priority
-                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1522]/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1522]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
 
                 {/* Quick Profile Summary Card */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-400">Education</span>
-                    <span className="text-slate-200 font-medium">B.Sc. Software Eng.</span>
+                    <span className="text-slate-200 font-medium">B.Sc. in Software Engineering</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-400">Institution</span>
-                    <span className="text-slate-200 font-medium">Daffodil Int. Univ.</span>
+                    <span className="text-slate-200 font-medium">Daffodil International University</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-400">Focus Areas</span>
