@@ -29,6 +29,15 @@ export default function About() {
     },
   ];
 
+  const focusAreas = [
+    "Competitive Problem Solving",
+    "Deep Learning & AI",
+    "Full-Stack Web Development",
+    "Data Structures & Algorithms",
+    "Software Engineering",
+    "Open Source Development",
+  ];
+
   return (
     <section id="about" className="py-16 sm:py-20 bg-[#0a0f1a] relative border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6">
@@ -94,6 +103,29 @@ export default function About() {
             ))}
           </motion.div>
         </div>
+
+        {/* Focus Areas at the bottom */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-8 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4"
+        >
+          <span className="text-xs uppercase tracking-wider text-slate-400 font-medium shrink-0">
+            What I Do:
+          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            {focusAreas.map((area) => (
+              <span
+                key={area}
+                className="px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 text-xs sm:text-sm text-slate-300 hover:border-slate-700 transition-colors"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
