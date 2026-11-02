@@ -13,9 +13,10 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: "Home", sectionId: "hero" },
   { label: "About", sectionId: "about" },
-  { label: "Projects", sectionId: "projects" },
   { label: "Skills", sectionId: "skills" },
   { label: "Experience", sectionId: "experience" },
+  { label: "Education", sectionId: "education" },
+  { label: "Projects", sectionId: "projects" },
   { label: "Achievements", sectionId: "achievements" },
   { label: "Contact", sectionId: "contact" },
 ];
@@ -56,14 +57,14 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0.5 lg:gap-1">
             {navItems.map((item) => (
               <button
                 key={item.sectionId}
                 onClick={() => handleNavClick(item.sectionId)}
-                className={`relative px-3 py-2 text-sm transition-colors duration-200 ${
+                className={`relative px-2.5 lg:px-3 py-2 text-xs lg:text-sm transition-colors duration-200 ${
                   activeSection === item.sectionId
-                    ? "text-white"
+                    ? "text-white font-medium"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -78,7 +79,7 @@ export default function Navbar() {
             <a
               href={profile.resumePath}
               download
-              className="ml-4 flex items-center gap-2 border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 rounded-lg px-4 py-2 text-sm transition-colors duration-200"
+              className="ml-2 lg:ml-4 flex items-center gap-1.5 lg:gap-2 border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 rounded-lg px-3 lg:px-4 py-2 text-xs lg:text-sm transition-colors duration-200"
             >
               <Download size={16} />
               Resume

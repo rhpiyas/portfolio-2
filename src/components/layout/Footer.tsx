@@ -22,8 +22,8 @@ const socialLinks: SocialLink[] = [
 const footerNavItems = [
   { label: "Home", sectionId: "hero" },
   { label: "About", sectionId: "about" },
-  { label: "Projects", sectionId: "projects" },
   { label: "Skills", sectionId: "skills" },
+  { label: "Projects", sectionId: "projects" },
   { label: "Contact", sectionId: "contact" },
 ];
 
