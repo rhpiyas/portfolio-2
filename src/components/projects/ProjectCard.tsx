@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Globe, ArrowUpRight, BookOpen } from "lucide-react";
 import { Project } from "@/data/projects";
 import { GithubIcon } from "@/components/ui/Icons";
@@ -13,12 +12,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.35 }}
+    <div
       className="group flex flex-col justify-between rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1"
     >
       <div>
@@ -99,6 +93,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
