@@ -33,12 +33,7 @@ export default function Achievements() {
             <motion.div
               key={idx}
               variants={fadeInUp}
-              onClick={() => {
-                if (item.image) {
-                  setSelectedImage({ src: item.image, title: item.title });
-                }
-              }}
-              className="rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 shadow-md flex flex-col justify-between group cursor-pointer overflow-hidden"
+              className="rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between group overflow-hidden"
             >
               <div>
                 {/* Certificate Thumbnail (Flush with card border) */}
@@ -51,18 +46,12 @@ export default function Achievements() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="px-2.5 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-medium flex items-center gap-1 border border-slate-700">
-                        <ZoomIn size={12} />
-                        <span>Preview</span>
-                      </div>
-                    </div>
                   </div>
                 )}
 
                 {/* Content */}
                 <div className="p-3.5 sm:p-4">
-                  <h3 className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
+                  <h3 className="text-sm font-semibold text-white line-clamp-2 leading-snug">
                     {item.title}
                   </h3>
                   <p className="text-xs text-slate-400 mt-1 line-clamp-1">
@@ -72,10 +61,18 @@ export default function Achievements() {
               </div>
 
               <div className="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-2.5 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
-                <span className="text-cyan-400/90 font-medium group-hover:text-cyan-300 transition-colors inline-flex items-center gap-1">
-                  <ZoomIn size={12} />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (item.image) {
+                      setSelectedImage({ src: item.image, title: item.title });
+                    }
+                  }}
+                  className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                >
+                  <ZoomIn size={13} />
                   <span>View Certificate</span>
-                </span>
+                </button>
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80" />
               </div>
             </motion.div>
