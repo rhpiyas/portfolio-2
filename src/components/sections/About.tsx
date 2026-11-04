@@ -100,11 +100,13 @@ export default function About() {
 
             {/* Quick Badges aligned flush at bottom */}
             <div className="flex flex-wrap items-center gap-3 pt-4 lg:pt-0">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 text-sm text-slate-400">
-                <GraduationCap size={14} className="text-slate-400" /> Daffodil International University
+              <span className="group/badge inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 hover:border-slate-700 text-sm text-slate-400 hover:text-slate-200 transition-all duration-300 cursor-default select-none">
+                <GraduationCap size={14} className="text-slate-400 group-hover/badge:text-slate-300 transition-colors" />
+                <span>Daffodil International University</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 text-sm text-slate-400">
-                <MapPin size={14} className="text-slate-400" /> Dhaka, Bangladesh
+              <span className="group/badge inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 hover:border-slate-700 text-sm text-slate-400 hover:text-slate-200 transition-all duration-300 cursor-default select-none">
+                <MapPin size={14} className="text-slate-400 group-hover/badge:text-slate-300 transition-colors" />
+                <span>Dhaka, Bangladesh</span>
               </span>
             </div>
           </motion.div>

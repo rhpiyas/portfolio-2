@@ -140,13 +140,13 @@ export default function Contact() {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-[#0e1624] border border-slate-800/80">
-                <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-[#0e1624] border border-slate-800/80 hover:border-blue-500/40 transition-colors group cursor-default">
+                <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
                   <MapPin size={20} />
                 </div>
                 <div>
                   <div className="text-xs text-slate-400">Location</div>
-                  <div className="text-sm font-semibold text-white">
+                  <div className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">
                     {profile.location}
                   </div>
                 </div>

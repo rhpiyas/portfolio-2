@@ -104,7 +104,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 hover:border-blue-400/60 hover:bg-blue-500/20 text-blue-400 hover:text-blue-300 transition-all duration-300 text-xs sm:text-sm font-medium mb-6 cursor-default select-none"
             >
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
               <span>Available for Software & AI Opportunities</span>
