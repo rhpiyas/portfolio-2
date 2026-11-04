@@ -12,7 +12,7 @@ export const achievements: Achievement[] = [
     issuer: "Simplilearn SkillUp",
     description:
       "Earned a certification after successfully completing the Object-Oriented Programming in Java course.",
-    image: "/images/achievements/oop.webp",
+    image: "/images/achievements/oop-certificate.webp",
   },
   {
     title: "DIU Science Olympiad – Fall 2024",

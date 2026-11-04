@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Award, Trophy, ExternalLink, X, ZoomIn } from "lucide-react";
+import { X, ZoomIn } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { achievements } from "@/data/achievements";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
@@ -27,64 +27,56 @@ export default function Achievements() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-10"
         >
           {achievements.map((item, idx) => (
             <motion.div
               key={idx}
               variants={fadeInUp}
-              className="p-6 rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 shadow-lg flex flex-col justify-between group"
+              onClick={() => {
+                if (item.image) {
+                  setSelectedImage({ src: item.image, title: item.title });
+                }
+              }}
+              className="rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 shadow-md flex flex-col justify-between group cursor-pointer overflow-hidden"
             >
               <div>
-                {/* Certificate / Contest Image if available */}
+                {/* Certificate Thumbnail (Flush with card border) */}
                 {item.image && (
-                  <div
-                    onClick={() =>
-                      setSelectedImage({
-                        src: item.image!,
-                        title: item.title,
-                      })
-                    }
-                    className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-5 bg-slate-950 border border-slate-800/60 cursor-pointer group/img"
-                  >
+                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-950 border-b border-slate-800/60">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 500px"
-                      className="object-cover group-hover/img:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="px-3 py-1.5 rounded-lg bg-slate-900/90 text-white text-xs font-medium flex items-center gap-1.5 border border-slate-700">
-                        <ZoomIn size={14} />
-                        <span>View Certificate</span>
+                    <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="px-2.5 py-1 rounded-md bg-slate-900/90 text-white text-[11px] font-medium flex items-center gap-1 border border-slate-700">
+                        <ZoomIn size={12} />
+                        <span>Preview</span>
                       </div>
                     </div>
                   </div>
                 )}
 
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
-                    <Trophy size={18} />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs font-semibold text-blue-400 mt-0.5">
-                      {item.issuer}
-                    </p>
-                  </div>
+                {/* Content */}
+                <div className="p-3.5 sm:p-4">
+                  <h3 className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1 line-clamp-1">
+                    {item.issuer}
+                  </p>
                 </div>
-
-                <p className="text-slate-400 text-sm leading-relaxed mt-4">
-                  {item.description}
-                </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500">
-                <span>Verified achievement</span>
-                <span className="w-2 h-2 rounded-full bg-cyan-400/80" />
+              <div className="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-2.5 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
+                <span className="text-cyan-400/90 font-medium group-hover:text-cyan-300 transition-colors inline-flex items-center gap-1">
+                  <ZoomIn size={12} />
+                  <span>View Certificate</span>
+                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80" />
               </div>
             </motion.div>
           ))}
@@ -124,6 +116,7 @@ export default function Achievements() {
                   src={selectedImage.src}
                   alt={selectedImage.title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 896px"
                   className="object-contain"
                 />
               </div>
