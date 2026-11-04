@@ -104,7 +104,7 @@ export const projects: Project[] = [
     shortDescription: "A JavaScript-based weather app that displays real-time weather data based on the user's location.",
     description:
       "Amar Weather is a JavaScript-based web application designed to provide real-time weather information based on the user's current location. The application uses the browser's Geolocation API to detect the user's latitude and longitude and then uses external APIs to retrieve relevant weather and location data. It displays essential information such as the current temperature, current date and time, rain probability, and the user's location name. The application is designed with a simple and user-friendly interface so that users can quickly check their current weather conditions without manually entering a location.\n\nThis project helped gain practical experience with asynchronous JavaScript, the Fetch API, API integration, JSON data handling, and browser geolocation. Working with dynamic API requests using the user's coordinates instead of fixed locations made the application more flexible and location-aware. The project strengthened understanding of working with external APIs, handling responses and errors, and dynamically updating webpage content using JavaScript and the DOM.",
-    category: "web",
+    category: "personal",
     role: "Solo Developer",
     date: "September 17, 2026",
     technologies: [
