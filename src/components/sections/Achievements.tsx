@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ZoomIn } from "lucide-react";
+import { X, ZoomIn, Building2, BadgeCheck } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { achievements } from "@/data/achievements";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
@@ -54,8 +54,9 @@ export default function Achievements() {
                   <h3 className="text-sm font-semibold text-white line-clamp-2 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1 line-clamp-1">
-                    {item.issuer}
+                  <p className="text-xs text-slate-400 mt-2.5 flex items-center gap-1.5 line-clamp-1">
+                    <Building2 size={13} className="text-slate-400 shrink-0" />
+                    <span>{item.issuer}</span>
                   </p>
                 </div>
               </div>
@@ -73,7 +74,10 @@ export default function Achievements() {
                   <ZoomIn size={13} />
                   <span>View Certificate</span>
                 </button>
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400/80" />
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] text-emerald-400 bg-emerald-950/30 border border-emerald-800/40 font-medium">
+                  <BadgeCheck size={12} className="text-emerald-400 shrink-0" />
+                  <span>Verified</span>
+                </span>
               </div>
             </motion.div>
           ))}
