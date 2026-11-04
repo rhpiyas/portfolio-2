@@ -1,7 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import {
+  GraduationCap,
+  MapPin,
+  Terminal,
+  Brain,
+  Globe,
+  Binary,
+  Layers,
+  GitPullRequest,
+} from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { fadeInUp } from "@/lib/animations";
 
@@ -30,12 +39,36 @@ export default function About() {
   ];
 
   const focusAreas = [
-    "Competitive Problem Solving",
-    "Deep Learning & AI",
-    "Full-Stack Web Development",
-    "Data Structures & Algorithms",
-    "Software Engineering",
-    "Open Source Development",
+    {
+      title: "Competitive Problem Solving",
+      desc: "Algorithmic challenges, Codeforces & LeetCode",
+      icon: Terminal,
+    },
+    {
+      title: "Deep Learning & AI",
+      desc: "Neural networks, ML models & research",
+      icon: Brain,
+    },
+    {
+      title: "Full-Stack Web Development",
+      desc: "Modern responsive apps with Next.js & React",
+      icon: Globe,
+    },
+    {
+      title: "Data Structures & Algorithms",
+      desc: "Optimized problem solving, trees, graphs & DP",
+      icon: Binary,
+    },
+    {
+      title: "Software Engineering",
+      desc: "Clean architecture, modular design & best practices",
+      icon: Layers,
+    },
+    {
+      title: "Open Source Development",
+      desc: "Public repositories, active tooling & collaboration",
+      icon: GitPullRequest,
+    },
   ];
 
   return (
@@ -68,11 +101,10 @@ export default function About() {
             {/* Quick Badges aligned flush at bottom */}
             <div className="flex flex-wrap items-center gap-3 pt-4 lg:pt-0">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 text-sm text-slate-400">
-                <MapPin size={14} className="text-slate-400" /> Dhaka, Bangladesh
+                <GraduationCap size={14} className="text-slate-400" /> Daffodil International University
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 text-sm text-slate-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Available for Opportunities
+                <MapPin size={14} className="text-slate-400" /> Dhaka, Bangladesh
               </span>
             </div>
           </motion.div>
@@ -104,26 +136,42 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Focus Areas at the bottom */}
+        {/* What I Do - Focus Areas Grid */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mt-8 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4"
+          className="mt-12 sm:mt-14"
         >
-          <span className="text-xs uppercase tracking-wider text-slate-400 font-medium shrink-0">
-            What I Do:
-          </span>
-          <div className="flex flex-wrap items-center gap-2">
-            {focusAreas.map((area) => (
-              <span
-                key={area}
-                className="px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 text-xs sm:text-sm text-slate-300 hover:border-slate-700 transition-colors"
-              >
-                {area}
-              </span>
-            ))}
+          <div className="mb-6">
+            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+              What I Do
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+            {focusAreas.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="p-4 sm:p-4.5 rounded-2xl bg-[#0e1624]/90 border border-slate-800/80 hover:border-slate-700 transition-all duration-300 group flex items-start gap-3.5"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 group-hover:text-slate-200 group-hover:border-slate-700 transition-colors shrink-0">
+                    <Icon size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
