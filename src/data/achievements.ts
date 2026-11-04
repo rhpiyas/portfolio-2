@@ -8,30 +8,34 @@ export interface Achievement {
 
 export const achievements: Achievement[] = [
   {
-    title: "Object-Oriented Programming in Java",
-    issuer: "Simplilearn SkillUp",
-    description:
-      "Earned a certification after successfully completing the Object-Oriented Programming in Java course.",
-    image: "/images/achievements/oop-certificate.webp",
-  },
-  {
     title: "DIU Science Olympiad – Fall 2024",
     issuer: "Daffodil International University",
+    date: "November 28, 2024",
     description: "Participated in the DIU Science Olympiad during Fall 2024 semester.",
     image: "/images/achievements/science-olympiad.webp",
   },
   {
     title: "DIU Code Trap Programming Contest – Spring 2025",
     issuer: "DIU Software Engineering Club",
+    date: "May 16, 2025",
     description: "Participated in the Code Trap Programming Contest organized by the DIU Software Engineering Club.",
     image: "/images/achievements/codetrap-spring25.png",
   },
   {
     title: "DIU Code Trap Programming Contest – Summer 2025",
     issuer: "DIU Software Engineering Club",
+    date: "September 26, 2025",
     description:
       "Participated in the Code Trap Programming Contest for the second consecutive time.",
     image: "/images/achievements/codetrap-summer25.webp",
+  },
+  {
+    title: "Object-Oriented Programming in Java",
+    issuer: "Simplilearn SkillUp",
+    date: "March 16, 2026",
+    description:
+      "Earned a certification after successfully completing the Object-Oriented Programming in Java course.",
+    image: "/images/achievements/oop-certificate.webp",
   },
 ];
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ZoomIn, Building2, BadgeCheck } from "lucide-react";
+import { X, ZoomIn, Building2, BadgeCheck, Calendar } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { achievements } from "@/data/achievements";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
@@ -54,10 +54,16 @@ export default function Achievements() {
                   <h3 className="text-sm font-semibold text-white line-clamp-2 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-2.5 flex items-center gap-1.5 line-clamp-1">
+                  <p className="text-xs text-slate-400 mt-2 flex items-center gap-1.5 line-clamp-1">
                     <Building2 size={13} className="text-slate-400 shrink-0" />
                     <span>{item.issuer}</span>
                   </p>
+                  {item.date && (
+                    <p className="text-[11px] text-slate-400 mt-1 flex items-center gap-1.5 line-clamp-1">
+                      <Calendar size={12} className="text-slate-400 shrink-0" />
+                      <span>{item.date}</span>
+                    </p>
+                  )}
                 </div>
               </div>
 
