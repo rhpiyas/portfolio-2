@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Menu, X, Download } from "lucide-react";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
@@ -47,7 +48,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -61,16 +62,24 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0a0f1a]/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/5 transition-all duration-300 ${
-        scrolled ? "shadow-md shadow-slate-200/50 dark:shadow-lg dark:shadow-black/20" : ""
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-2xl backdrop-saturate-[180%] ${
+        scrolled
+          ? "bg-white/60 dark:bg-[#0a0f1a]/60 shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_12px_32px_rgba(0,0,0,0.4)]"
+          : "bg-white/35 dark:bg-[#0a0f1a]/35"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Liquid glass specular top reflection sheen */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/40 via-white/10 to-transparent dark:from-white/[0.06] dark:via-transparent dark:to-transparent"
+      />
+
+      <div className="relative max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
           <button
             onClick={() => handleNavClick("hero")}
-            className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 dark:text-white tracking-tight cursor-pointer whitespace-nowrap"
+            className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 dark:text-white tracking-tight cursor-pointer whitespace-nowrap hover:opacity-80 transition-opacity"
           >
             Rakib Hasan Piyas
           </button>
@@ -86,9 +95,9 @@ export default function Navbar() {
                 <button
                   key={item.sectionId}
                   onClick={() => handleNavClick(item.sectionId)}
-                  className={`relative px-2.5 lg:px-3 py-2 text-xs lg:text-sm transition-colors duration-200 ${
+                  className={`relative px-2.5 lg:px-3 py-2 text-xs lg:text-sm font-medium transition-colors duration-200 cursor-pointer ${
                     isActive
-                      ? "text-blue-600 dark:text-white font-semibold"
+                      ? "text-blue-600 dark:text-blue-400"
                       : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
                   }`}
                 >
@@ -96,7 +105,15 @@ export default function Navbar() {
                     ? `Project - ${currentProject.name}`
                     : item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-blue-500 rounded-full" />
+                    <motion.span
+                      layoutId="activeNavIndicator"
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 32,
+                      }}
+                      className="absolute bottom-0 inset-x-0 mx-auto w-6 h-[2.5px] bg-blue-500 dark:bg-blue-400 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                    />
                   )}
                 </button>
               );
@@ -114,7 +131,7 @@ export default function Navbar() {
               className="ml-1.5 lg:ml-2.5 flex items-center gap-1.5 lg:gap-2 border border-blue-500/50 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg px-3 lg:px-4 py-2 text-xs lg:text-sm font-medium transition-colors duration-200"
             >
               <Download size={16} />
-              Resume
+              <span>Resume</span>
             </a>
           </div>
 
@@ -123,7 +140,7 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-1.5 rounded-lg text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/[0.05] dark:hover:bg-white/[0.08] transition-colors cursor-pointer"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -138,7 +155,7 @@ export default function Navbar() {
           mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-white/95 dark:bg-[#0a0f1a]/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 px-6 py-4 space-y-1">
+        <div className="bg-white/90 dark:bg-[#0a0f1a]/90 backdrop-blur-2xl backdrop-saturate-[180%] px-6 py-4 space-y-1 shadow-lg dark:shadow-black/40">
           {navItems.map((item) => {
             const isActive = activeSection === item.sectionId;
             const isProjectItemOnProjectPage =
@@ -148,30 +165,30 @@ export default function Navbar() {
               <button
                 key={item.sectionId}
                 onClick={() => handleNavClick(item.sectionId)}
-                className={`block w-full text-left px-4 py-3 rounded-lg text-sm transition-colors duration-200 ${
+                className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-150 cursor-pointer ${
                   isActive
-                    ? "text-blue-600 bg-blue-50 dark:text-white dark:bg-white/5 font-medium"
-                    : "text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/5"
+                    ? "text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-blue-500/10"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-slate-100/60 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/5"
                 }`}
               >
                 {isProjectItemOnProjectPage
                   ? `Project - ${currentProject.name}`
                   : item.label}
                 {isActive && (
-                  <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full ml-2" />
+                  <span className="inline-block w-1.5 h-1.5 bg-blue-500 dark:bg-blue-400 rounded-full ml-2" />
                 )}
               </button>
             );
           })}
 
-          <div className="pt-2 mt-2 border-t border-slate-200 dark:border-white/5">
+          <div className="pt-2 mt-2">
             <a
               href={profile.resumePath}
               download
               className="flex items-center justify-center gap-2 px-4 py-2.5 border border-blue-500/50 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg text-sm font-medium transition-colors duration-200"
             >
               <Download size={16} />
-              Download Resume
+              <span>Download Resume</span>
             </a>
           </div>
         </div>

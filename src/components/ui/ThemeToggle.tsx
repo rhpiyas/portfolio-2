@@ -27,10 +27,10 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
       type="button"
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       title={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      className={`relative inline-flex items-center justify-center w-9 h-9 rounded-xl border transition-all duration-200 cursor-pointer select-none ${
+      className={`relative inline-flex items-center justify-center w-9 h-9 rounded-xl border transition-all duration-200 cursor-pointer select-none backdrop-blur-md ${
         isDark
-          ? "border-slate-800 bg-slate-900/80 text-amber-400 hover:bg-slate-800 hover:text-amber-300 hover:border-slate-700"
-          : "border-slate-200 bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-indigo-600 hover:border-slate-300 shadow-xs"
+          ? "border-white/10 bg-white/[0.06] text-amber-300 hover:bg-white/[0.12] hover:text-amber-200 hover:border-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+          : "border-slate-900/[0.08] bg-slate-900/[0.04] text-slate-700 hover:bg-slate-900/[0.08] hover:text-blue-600 hover:border-slate-900/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
       } ${className}`}
     >
       {isDark ? (
