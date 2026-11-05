@@ -27,7 +27,7 @@ export const achievements: Achievement[] = [
     date: "September 26, 2025",
     description:
       "Participated in the Code Trap Programming Contest for the second consecutive time.",
-    image: "/images/achievements/codetrap-summer25.webp",
+    image: "/images/achievements/codetrap-summer-2025.webp",
   },
   {
     title: "Object-Oriented Programming in Java",
