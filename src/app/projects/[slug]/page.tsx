@@ -223,47 +223,47 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* In-depth Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-8 space-y-8">
-            <div className="p-8 rounded-2xl bg-[#0e1624] border border-slate-800/80">
-              <h2 className="text-xl font-bold text-white mb-4">
-                Overview & Architecture
-              </h2>
-              <div className="space-y-4 text-slate-300 leading-relaxed text-sm whitespace-pre-line">
-                {project.description}
-              </div>
-            </div>
+        {/* Overview & Architecture (Full Width) */}
+        <div className="p-8 rounded-2xl bg-[#0e1624] border border-slate-800/80 mb-8">
+          <h2 className="text-xl font-bold text-white mb-4">
+            Overview & Architecture
+          </h2>
+          <div className="space-y-4 text-slate-300 leading-relaxed text-sm whitespace-pre-line">
+            {project.description}
+          </div>
+        </div>
 
-            {/* Key Features */}
-            <div className="p-8 rounded-2xl bg-[#0e1624] border border-slate-800/80">
-              <h2 className="text-xl font-bold text-white mb-5">
-                Key Features & Capabilities
-              </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {project.features.map((feature, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-start gap-2.5 text-sm text-slate-300"
-                  >
-                    <CheckCircle2
-                      size={16}
-                      className="text-cyan-400 shrink-0 mt-0.5"
-                    />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {/* Features & Technologies Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          {/* Key Features (Left) */}
+          <div className="p-8 rounded-2xl bg-[#0e1624] border border-slate-800/80 h-full flex flex-col">
+            <h2 className="text-xl font-bold text-white mb-5">
+              Key Features & Capabilities
+            </h2>
+            <ul className="space-y-3.5">
+              {project.features.map((feature, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-sm text-slate-300"
+                >
+                  <CheckCircle2
+                    size={16}
+                    className="text-cyan-400 shrink-0 mt-0.5"
+                  />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Sidebar: Technologies */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="p-6 rounded-2xl bg-[#0e1624] border border-slate-800/80">
-              <h3 className="text-base font-bold text-white mb-4">
+          {/* Right Column: Technologies & Tools + Have Questions */}
+          <div className="flex flex-col justify-between gap-6 sm:gap-7 h-full">
+            {/* Technologies & Tools */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#0e1624] border border-slate-800/80">
+              <h2 className="text-xl font-bold text-white mb-4">
                 Technologies & Tools
-              </h3>
-              <div className="flex flex-wrap gap-2">
+              </h2>
+              <div className="flex flex-wrap gap-2.5">
                 {project.technologies.map((tech, idx) => (
                   <span
                     key={idx}
@@ -275,11 +275,12 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-[#111e33] to-[#0c1422] border border-blue-500/20 text-center">
-              <h4 className="text-base font-bold text-white mb-2">
+            {/* Have Questions */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#111e33] to-[#0c1422] border border-blue-500/20 text-center">
+              <h3 className="text-base font-bold text-white mb-2">
                 Have questions about this project?
-              </h4>
-              <p className="text-xs text-slate-400 mb-4">
+              </h3>
+              <p className="text-xs text-slate-400 mb-5">
                 Interested in discussion, review, or collaboration? Let&apos;s talk.
               </p>
               <Link
