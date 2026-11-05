@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -26,6 +26,38 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    const handleUrlParams = () => {
+      if (typeof window === "undefined") return;
+
+      let params = new URLSearchParams(window.location.search);
+      if (!params.get("project") && window.location.hash.includes("?")) {
+        const hashQuery = window.location.hash.split("?")[1];
+        params = new URLSearchParams(hashQuery);
+      }
+
+      const projectName = params.get("project");
+      if (projectName) {
+        setFormData((prev) => ({
+          ...prev,
+          subject: `Discuss about ${projectName}`,
+          message: `Hi Piyas,\n\nI was reviewing your project "${projectName}" on your portfolio and would like to discuss more about the project.\n\n[Your discussion / questions here...]\n\nLooking forward to hearing from you!`,
+        }));
+
+        setTimeout(() => {
+          const contactSection = document.getElementById("contact");
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 150);
+      }
+    };
+
+    handleUrlParams();
+    window.addEventListener("popstate", handleUrlParams);
+    return () => window.removeEventListener("popstate", handleUrlParams);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

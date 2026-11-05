@@ -284,7 +284,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 Interested in discussion, review, or collaboration? Let&apos;s talk.
               </p>
               <Link
-                href="/#contact"
+                href={`/?project=${encodeURIComponent(project.name)}#contact`}
                 className="inline-block w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors"
               >
                 Reach Out
