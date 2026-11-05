@@ -72,7 +72,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-20 bg-[#0a0f1a] relative border-b border-white/10">
+    <section id="about" className="py-16 sm:py-20 bg-transparent dark:bg-[#0a0f1a] relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="About Me"
@@ -89,23 +89,23 @@ export default function About() {
             className="lg:col-span-7 flex flex-col justify-between space-y-6 lg:space-y-0"
           >
             <div className="space-y-4">
-              <p className="text-base text-slate-300 leading-relaxed">
+              <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                 I am a Software Engineering undergraduate at Daffodil International University, passionate about building reliable web applications and solving algorithmic problems.
               </p>
 
-              <p className="text-base text-slate-300 leading-relaxed">
+              <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                 My focus is centered on clean architecture, performance, and continuous learning. I enjoy taking ideas from concept to deployment—whether it&apos;s crafting responsive full-stack applications, exploring machine learning models, or practicing problem-solving on online judges.
               </p>
             </div>
 
             {/* Quick Badges aligned flush at bottom */}
             <div className="flex flex-wrap items-center gap-3 pt-4 lg:pt-0">
-              <span className="group/badge inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 hover:border-slate-700 text-sm text-slate-400 hover:text-slate-200 transition-all duration-300 cursor-default select-none">
-                <GraduationCap size={14} className="text-slate-400 group-hover/badge:text-slate-300 transition-colors" />
+              <span className="group/badge inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-sm text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-all duration-300 cursor-default select-none shadow-2xs">
+                <GraduationCap size={14} className="text-slate-500 group-hover/badge:text-slate-700 dark:text-slate-400 dark:group-hover/badge:text-slate-300 transition-colors" />
                 <span>Daffodil International University</span>
               </span>
-              <span className="group/badge inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0e1624] border border-slate-800 hover:border-slate-700 text-sm text-slate-400 hover:text-slate-200 transition-all duration-300 cursor-default select-none">
-                <MapPin size={14} className="text-slate-400 group-hover/badge:text-slate-300 transition-colors" />
+              <span className="group/badge inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-sm text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-all duration-300 cursor-default select-none shadow-2xs">
+                <MapPin size={14} className="text-slate-500 group-hover/badge:text-slate-700 dark:text-slate-400 dark:group-hover/badge:text-slate-300 transition-colors" />
                 <span>Dhaka, Bangladesh</span>
               </span>
             </div>
@@ -122,12 +122,12 @@ export default function About() {
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="p-4 sm:p-5 rounded-2xl bg-[#0e1624]/90 border border-slate-800/80 hover:border-slate-700 transition-all duration-300 flex flex-col justify-center"
+                className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#0e1624]/90 border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex flex-col justify-center shadow-xs dark:shadow-none"
               >
-                <div className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-200 mt-1">
+                <div className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 mt-1">
                   {stat.label}
                 </div>
                 <div className="text-[11px] sm:text-xs text-slate-500 mt-0.5">
@@ -147,7 +147,7 @@ export default function About() {
           className="mt-12 sm:mt-14"
         >
           <div className="mb-6">
-            <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+            <span className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">
               What I Do
             </span>
           </div>
@@ -158,16 +158,16 @@ export default function About() {
               return (
                 <div
                   key={item.title}
-                  className="p-4 sm:p-4.5 rounded-2xl bg-[#0e1624]/90 border border-slate-800/80 hover:border-slate-700 transition-all duration-300 group flex items-start gap-3.5"
+                  className="p-4 sm:p-4.5 rounded-2xl bg-white dark:bg-[#0e1624]/90 border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 group flex items-start gap-3.5 shadow-xs dark:shadow-none"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 group-hover:text-slate-200 group-hover:border-slate-700 transition-colors shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-slate-200 group-hover:border-slate-300 dark:group-hover:border-slate-700 transition-colors shrink-0">
                     <Icon size={18} />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">
+                    <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-white transition-colors">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

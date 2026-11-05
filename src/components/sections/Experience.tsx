@@ -10,7 +10,7 @@ export default function Experience() {
   const icons = [Terminal, Trophy, Code2];
 
   return (
-    <section id="experience" className="py-24 bg-[#0a0f1a] relative">
+    <section id="experience" className="py-24 bg-transparent dark:bg-[#0a0f1a] relative transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Experience & Problem Solving"
@@ -22,7 +22,7 @@ export default function Experience() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mt-12 relative border-l-2 border-slate-800 ml-4 sm:ml-6 space-y-12 pl-6 sm:pl-8 max-w-4xl"
+          className="mt-12 relative border-l-2 border-slate-300 dark:border-slate-800 ml-4 sm:ml-6 space-y-12 pl-6 sm:pl-8 max-w-4xl"
         >
           {experiences.map((exp, idx) => {
             const Icon = icons[idx % icons.length];
@@ -33,23 +33,23 @@ export default function Experience() {
                 className="relative group"
               >
                 {/* Timeline node */}
-                <div className="absolute -left-[35px] sm:-left-[43px] top-1.5 w-8 h-8 rounded-full bg-[#0a0f1a] border-2 border-blue-500/80 flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                <div className="absolute -left-[35px] sm:-left-[43px] top-1.5 w-8 h-8 rounded-full bg-white dark:bg-[#0a0f1a] border-2 border-blue-500/80 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-xs">
                   <Icon size={14} />
                 </div>
 
                 {/* Card */}
-                <div className="p-6 sm:p-7 rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 shadow-lg">
+                <div className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm dark:shadow-lg">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors">
                       {exp.title}
                     </h3>
-                    <div className="inline-flex items-center gap-1.5 text-xs text-cyan-400 font-medium bg-cyan-950/40 border border-cyan-800/30 px-3 py-1 rounded-full w-fit">
+                    <div className="inline-flex items-center gap-1.5 text-xs text-blue-700 dark:text-cyan-400 font-medium bg-blue-50 dark:bg-cyan-950/40 border border-blue-200 dark:border-cyan-800/30 px-3 py-1 rounded-full w-fit">
                       <Calendar size={12} />
                       <span>{exp.period}</span>
                     </div>
                   </div>
 
-                  <p className="text-slate-300 text-sm font-medium mb-4">
+                  <p className="text-slate-700 dark:text-slate-300 text-sm font-medium mb-4">
                     {exp.organization}
                   </p>
 
@@ -57,11 +57,11 @@ export default function Experience() {
                     {exp.details.map((detail, dIdx) => (
                       <li
                         key={dIdx}
-                        className="flex items-start gap-2.5 text-sm text-slate-400 leading-relaxed"
+                        className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
                       >
                         <CheckCircle2
                           size={15}
-                          className="text-blue-400 shrink-0 mt-0.5"
+                          className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5"
                         />
                         <span>{detail}</span>
                       </li>

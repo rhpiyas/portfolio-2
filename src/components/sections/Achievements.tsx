@@ -15,7 +15,7 @@ export default function Achievements() {
   } | null>(null);
 
   return (
-    <section id="achievements" className="py-16 sm:py-20 bg-[#080d16] relative border-b border-white/10">
+    <section id="achievements" className="py-16 sm:py-20 bg-transparent dark:bg-[#080d16] relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Achievements & Certifications"
@@ -33,12 +33,12 @@ export default function Achievements() {
             <motion.div
               key={idx}
               variants={fadeInUp}
-              className="rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between group overflow-hidden"
+              className="rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between group overflow-hidden"
             >
               <div>
                 {/* Certificate Thumbnail (Flush with card border) */}
                 {item.image && (
-                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-950 border-b border-slate-800/60">
+                  <div className="relative aspect-[16/11] w-full overflow-hidden bg-slate-100 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800/60">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -51,23 +51,23 @@ export default function Achievements() {
 
                 {/* Content */}
                 <div className="p-3.5 sm:p-4">
-                  <h3 className="text-sm font-semibold text-white line-clamp-2 leading-snug">
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white line-clamp-2 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-2 flex items-center gap-1.5 line-clamp-1">
-                    <Building2 size={13} className="text-slate-400 shrink-0" />
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 flex items-center gap-1.5 line-clamp-1">
+                    <Building2 size={13} className="text-slate-500 dark:text-slate-400 shrink-0" />
                     <span>{item.issuer}</span>
                   </p>
                   {item.date && (
-                    <p className="text-[11px] text-slate-400 mt-1 flex items-center gap-1.5 line-clamp-1">
-                      <Calendar size={12} className="text-slate-400 shrink-0" />
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1.5 line-clamp-1">
+                      <Calendar size={12} className="text-slate-500 dark:text-slate-400 shrink-0" />
                       <span>{item.date}</span>
                     </p>
                   )}
                 </div>
               </div>
 
-              <div className="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-2.5 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
+              <div className="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-2.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
                 <button
                   type="button"
                   onClick={() => {
@@ -75,13 +75,13 @@ export default function Achievements() {
                       setSelectedImage({ src: item.image, title: item.title });
                     }
                   }}
-                  className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+                  className="text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 font-medium transition-colors inline-flex items-center gap-1.5 cursor-pointer"
                 >
                   <ZoomIn size={13} />
                   <span>View Certificate</span>
                 </button>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] text-emerald-400 bg-emerald-950/30 border border-emerald-800/40 font-medium">
-                  <BadgeCheck size={12} className="text-emerald-400 shrink-0" />
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40 font-medium">
+                  <BadgeCheck size={12} className="text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <span>Verified</span>
                 </span>
               </div>
@@ -105,15 +105,15 @@ export default function Achievements() {
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full bg-[#0e1624] rounded-2xl border border-slate-700 overflow-hidden p-3 shadow-2xl"
+              className="relative max-w-4xl w-full bg-white dark:bg-[#0e1624] rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden p-3 shadow-2xl"
             >
-              <div className="flex items-center justify-between px-3 py-2 text-white border-b border-slate-800 mb-3">
+              <div className="flex items-center justify-between px-3 py-2 text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 mb-3">
                 <span className="text-sm font-semibold">
                   {selectedImage.title}
                 </span>
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="p-1 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors cursor-pointer"
                 >
                   <X size={18} />
                 </button>

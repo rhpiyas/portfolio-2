@@ -6,6 +6,7 @@ import { Menu, X, Download } from "lucide-react";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { useActiveSection, smoothScrollTo } from "@/lib/hooks";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 interface NavItem {
   label: string;
@@ -60,8 +61,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-[#0a0f1a]/80 backdrop-blur-xl border-b border-white/5 transition-shadow duration-300 ${
-        scrolled ? "shadow-lg shadow-black/20" : ""
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0a0f1a]/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/5 transition-all duration-300 ${
+        scrolled ? "shadow-md shadow-slate-200/50 dark:shadow-lg dark:shadow-black/20" : ""
       }`}
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -69,7 +70,7 @@ export default function Navbar() {
           {/* Brand */}
           <button
             onClick={() => handleNavClick("hero")}
-            className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight cursor-pointer whitespace-nowrap"
+            className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 dark:text-white tracking-tight cursor-pointer whitespace-nowrap"
           >
             Rakib Hasan Piyas
           </button>
@@ -87,8 +88,8 @@ export default function Navbar() {
                   onClick={() => handleNavClick(item.sectionId)}
                   className={`relative px-2.5 lg:px-3 py-2 text-xs lg:text-sm transition-colors duration-200 ${
                     isActive
-                      ? "text-white font-medium"
-                      : "text-slate-400 hover:text-white"
+                      ? "text-blue-600 dark:text-white font-semibold"
+                      : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
                   }`}
                 >
                   {isProjectItemOnProjectPage
@@ -101,25 +102,33 @@ export default function Navbar() {
               );
             })}
 
+            {/* Theme Toggle Button */}
+            <div className="ml-2 lg:ml-3">
+              <ThemeToggle />
+            </div>
+
             {/* Resume Download */}
             <a
               href={profile.resumePath}
               download
-              className="ml-2 lg:ml-4 flex items-center gap-1.5 lg:gap-2 border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 rounded-lg px-3 lg:px-4 py-2 text-xs lg:text-sm transition-colors duration-200"
+              className="ml-1.5 lg:ml-2.5 flex items-center gap-1.5 lg:gap-2 border border-blue-500/50 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg px-3 lg:px-4 py-2 text-xs lg:text-sm font-medium transition-colors duration-200"
             >
               <Download size={16} />
               Resume
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-slate-400 hover:text-white transition-colors"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Right Controls: Theme Toggle & Menu Toggle */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-1.5 rounded-lg text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors cursor-pointer"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -129,7 +138,7 @@ export default function Navbar() {
           mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-[#0a0f1a]/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 space-y-1">
+        <div className="bg-white/95 dark:bg-[#0a0f1a]/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 px-6 py-4 space-y-1">
           {navItems.map((item) => {
             const isActive = activeSection === item.sectionId;
             const isProjectItemOnProjectPage =
@@ -141,8 +150,8 @@ export default function Navbar() {
                 onClick={() => handleNavClick(item.sectionId)}
                 className={`block w-full text-left px-4 py-3 rounded-lg text-sm transition-colors duration-200 ${
                   isActive
-                    ? "text-white bg-white/5 font-medium"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                    ? "text-blue-600 bg-blue-50 dark:text-white dark:bg-white/5 font-medium"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/5"
                 }`}
               >
                 {isProjectItemOnProjectPage
@@ -155,14 +164,16 @@ export default function Navbar() {
             );
           })}
 
-          <a
-            href={profile.resumePath}
-            download
-            className="flex items-center gap-2 px-4 py-3 mt-2 border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 rounded-lg text-sm transition-colors duration-200"
-          >
-            <Download size={16} />
-            Download Resume
-          </a>
+          <div className="pt-2 mt-2 border-t border-slate-200 dark:border-white/5">
+            <a
+              href={profile.resumePath}
+              download
+              className="flex items-center justify-center gap-2 px-4 py-2.5 border border-blue-500/50 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg text-sm font-medium transition-colors duration-200"
+            >
+              <Download size={16} />
+              Download Resume
+            </a>
+          </div>
         </div>
       </div>
     </nav>

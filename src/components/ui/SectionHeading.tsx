@@ -18,10 +18,10 @@ export default function SectionHeading({ title, subtitle, className = "" }: Sect
       viewport={{ once: true, margin: "-100px" }}
       className={`text-left mb-12 sm:mb-14 ${className}`}
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">{title}</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">{title}</h2>
       <div className="w-16 h-1 bg-blue-500 rounded-full mt-4 mb-3" />
       {subtitle && (
-        <p className="text-slate-400 mt-3 max-w-2xl text-base">{subtitle}</p>
+        <p className="text-slate-600 dark:text-slate-400 mt-3 max-w-2xl text-base">{subtitle}</p>
       )}
     </motion.div>
   );

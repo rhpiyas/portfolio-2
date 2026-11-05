@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
+import ScrollGradientBackground from "@/components/ui/ScrollGradientBackground";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rhpiyas.vercel.app"),
@@ -54,9 +56,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="min-h-screen bg-[#0a0f1a] text-slate-200 font-sans antialiased selection:bg-blue-500/30 selection:text-white">
-        {children}
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('portfolio-theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                  document.documentElement.style.colorScheme = theme;
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen bg-slate-50 text-slate-800 dark:bg-[#0a0f1a] dark:text-slate-200 font-sans antialiased selection:bg-blue-500/25 selection:text-blue-950 dark:selection:bg-blue-500/30 dark:selection:text-white transition-colors duration-200">
+        <ThemeProvider>
+          <ScrollGradientBackground />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

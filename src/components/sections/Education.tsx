@@ -7,7 +7,7 @@ import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 export default function Education() {
   return (
-    <section id="education" className="py-16 sm:py-20 bg-[#080d16] relative border-b border-white/10">
+    <section id="education" className="py-16 sm:py-20 bg-transparent dark:bg-[#080d16] relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Education"
@@ -25,16 +25,16 @@ export default function Education() {
             <motion.div
               key={idx}
               variants={fadeInUp}
-              className="p-5 sm:p-6 rounded-2xl bg-[#0e1624] border border-slate-800/80 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between shadow-lg"
+              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex flex-col justify-between shadow-sm dark:shadow-lg"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-xs font-medium text-slate-400">
+                  <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
                     {item.years}
                   </span>
                   {item.status === "ongoing" ? (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium text-emerald-400 bg-emerald-950/40 border border-emerald-800/30">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
                       Ongoing
                     </span>
                   ) : (
@@ -44,23 +44,23 @@ export default function Education() {
                   )}
                 </div>
 
-                <h3 className="text-base sm:text-lg font-bold text-white">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                   {item.degree}
                 </h3>
-                <p className="text-sm text-slate-300 font-medium mt-0.5">
+                <p className="text-sm text-slate-700 dark:text-slate-300 font-medium mt-0.5">
                   {item.field}
                 </p>
-                <p className="text-xs sm:text-sm text-slate-400 mt-2">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2">
                   {item.institution}
                 </p>
               </div>
 
               {item.gpa && (
-                <div className="mt-5 pt-3.5 border-t border-slate-800/60 flex items-center justify-between text-xs">
+                <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-xs">
                   <span className="text-slate-500">
                     {item.status === "ongoing" ? "Current CGPA" : "Result"}
                   </span>
-                  <span className="text-slate-200 font-semibold">
+                  <span className="text-slate-900 dark:text-slate-200 font-semibold">
                     {item.gpa} / {item.gpaScale}
                   </span>
                 </div>

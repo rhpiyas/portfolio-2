@@ -112,7 +112,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-[#0a0f1a] relative border-b border-white/10">
+    <section id="contact" className="py-16 sm:py-20 bg-transparent dark:bg-[#0a0f1a] relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Get In Touch"
@@ -129,10 +129,10 @@ export default function Contact() {
             className="lg:col-span-5 flex flex-col justify-between space-y-6 lg:space-y-0"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                 Let&apos;s Connect
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                 I am currently open to internships, software development
                 collaborations, and AI research projects. Drop a message or reach
                 out across any of my communication channels.
@@ -143,14 +143,14 @@ export default function Contact() {
             <div className="space-y-4">
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#0e1624] border border-slate-800/80 hover:border-blue-500/40 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-blue-500/40 transition-colors group shadow-xs dark:shadow-none"
               >
-                <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-105 transition-transform">
                   <Mail size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400">Email</div>
-                  <div className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Email</div>
+                  <div className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors">
                     {profile.email}
                   </div>
                 </div>
@@ -158,39 +158,39 @@ export default function Contact() {
 
               <a
                 href={`tel:${profile.phone}`}
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#0e1624] border border-slate-800/80 hover:border-blue-500/40 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-blue-500/40 transition-colors group shadow-xs dark:shadow-none"
               >
-                <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-105 transition-transform">
                   <Phone size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400">Phone</div>
-                  <div className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Phone</div>
+                  <div className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors">
                     {profile.phone}
                   </div>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-[#0e1624] border border-slate-800/80 hover:border-blue-500/40 transition-colors group cursor-default">
-                <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-blue-500/40 transition-colors group cursor-default shadow-xs dark:shadow-none">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-105 transition-transform">
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400">Location</div>
-                  <div className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Location</div>
+                  <div className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors">
                     {profile.location}
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-[#0e1624] border border-slate-800/80 hover:border-blue-500/40 transition-colors group cursor-default">
-                <div className="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-blue-500/40 transition-colors group cursor-default shadow-xs dark:shadow-none">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-105 transition-transform">
                   <Clock size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-400">Availability</div>
-                  <div className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <div className="text-xs text-slate-500 dark:text-slate-400">Availability</div>
+                  <div className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
                     <span>Open for Opportunities</span>
                   </div>
                 </div>
@@ -206,17 +206,17 @@ export default function Contact() {
             viewport={{ once: true, margin: "-100px" }}
             className="lg:col-span-7"
           >
-            <div className="p-8 rounded-2xl bg-[#0e1624] border border-slate-800/80 shadow-xl">
-              <h4 className="text-xl font-bold text-white mb-2">
+            <div className="p-8 rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 shadow-lg dark:shadow-xl">
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
                 Send a Direct Message
               </h4>
-              <p className="text-slate-400 text-sm mb-6">
+              <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">
                 Fill in the details below and I&apos;ll get back to you promptly.
               </p>
 
               {status === "success" && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/50 flex items-start gap-3 text-emerald-300 text-sm">
-                  <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+                <div className="mb-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-start gap-3 text-emerald-800 dark:text-emerald-300 text-sm">
+                  <CheckCircle2 size={18} className="shrink-0 mt-0.5 text-emerald-600 dark:text-emerald-400" />
                   <div>
                     <strong className="block font-semibold">
                       Message Sent Successfully!
@@ -230,8 +230,8 @@ export default function Contact() {
               )}
 
               {status === "error" && (
-                <div className="mb-6 p-4 rounded-xl bg-rose-950/40 border border-rose-800/50 flex items-start gap-3 text-rose-300 text-sm">
-                  <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                <div className="mb-6 p-4 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/50 flex items-start gap-3 text-rose-800 dark:text-rose-300 text-sm">
+                  <AlertCircle size={18} className="shrink-0 mt-0.5 text-rose-600 dark:text-rose-400" />
                   <div>
                     <strong className="block font-semibold">Notice</strong>
                     <span>{errorMessage}</span>
@@ -244,9 +244,9 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-xs font-medium text-slate-300 mb-1.5"
+                      className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5"
                     >
-                      Your Name <span className="text-rose-400">*</span>
+                      Your Name <span className="text-rose-500 dark:text-rose-400">*</span>
                     </label>
                     <input
                       id="name"
@@ -256,16 +256,16 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. John Doe"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-hidden focus:bg-white dark:focus:bg-slate-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                     />
                   </div>
 
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-xs font-medium text-slate-300 mb-1.5"
+                      className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5"
                     >
-                      Your Email <span className="text-rose-400">*</span>
+                      Your Email <span className="text-rose-500 dark:text-rose-400">*</span>
                     </label>
                     <input
                       id="email"
@@ -275,7 +275,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="e.g. john@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-hidden focus:bg-white dark:focus:bg-slate-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                     />
                   </div>
                 </div>
@@ -283,9 +283,9 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-xs font-medium text-slate-300 mb-1.5"
+                    className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5"
                   >
-                    Subject <span className="text-rose-400">*</span>
+                    Subject <span className="text-rose-500 dark:text-rose-400">*</span>
                   </label>
                   <input
                     id="subject"
@@ -295,16 +295,16 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Project Inquiry / Job Opportunity"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-hidden focus:bg-white dark:focus:bg-slate-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-medium text-slate-300 mb-1.5"
+                    className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1.5"
                   >
-                    Message <span className="text-rose-400">*</span>
+                    Message <span className="text-rose-500 dark:text-rose-400">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -314,7 +314,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Write your message here..."
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-hidden focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-hidden focus:bg-white dark:focus:bg-slate-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
                   />
                 </div>
 
