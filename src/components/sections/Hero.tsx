@@ -81,15 +81,15 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-transparent dark:bg-[#0a0f1a] border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200"
     >
-      {/* Subtle background glow & radial gradient */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-3xl" />
+      {/* Dark mode background glow & radial gradient */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden dark:block">
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
         <div className="absolute top-1/3 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
-              "radial-gradient(currentColor 1px, transparent 1px)",
+              "radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />

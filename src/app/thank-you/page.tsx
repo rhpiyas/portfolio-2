@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-transparent dark:bg-[#0a0f1a] text-slate-800 dark:text-slate-200 flex items-center justify-center p-6 relative overflow-hidden transition-colors duration-200">
-      {/* Background glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Dark mode background glow effects */}
+      <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none hidden dark:block" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none hidden dark:block" />
 
       <div className="relative z-10 max-w-md w-full p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#0e1624]/90 border border-slate-200 dark:border-slate-800 shadow-xl dark:shadow-2xl text-center">
         <div className="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-6">
