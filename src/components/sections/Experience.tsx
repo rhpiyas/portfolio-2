@@ -10,7 +10,7 @@ export default function Experience() {
   const icons = [Terminal, Trophy, Code2];
 
   return (
-    <section id="experience" className="py-24 bg-transparent dark:bg-[#0a0f1a] relative transition-colors duration-200">
+    <section id="experience" className="py-24 bg-transparent dark:bg-transparent relative transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Experience & Problem Solving"

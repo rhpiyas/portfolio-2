@@ -16,7 +16,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-16 sm:py-20 bg-transparent dark:bg-[#080d16] relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
+    <section id="skills" className="py-16 sm:py-20 bg-transparent dark:bg-transparent relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="Skills & Technologies"

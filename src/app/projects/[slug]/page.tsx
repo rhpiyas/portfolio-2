@@ -70,7 +70,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-transparent dark:bg-[#0a0f1a] text-slate-800 dark:text-slate-200 pt-28 pb-16 md:pt-32 md:pb-20 transition-colors duration-200">
+      <main className="min-h-screen bg-transparent dark:bg-transparent text-slate-800 dark:text-slate-200 pt-28 pb-16 md:pt-32 md:pb-20 transition-colors duration-200">
         <div className="max-w-5xl mx-auto px-6">
         {/* Navigation Breadcrumb / Back Link */}
         <div className="mb-8">

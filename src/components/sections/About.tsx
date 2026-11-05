@@ -72,7 +72,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-20 bg-transparent dark:bg-[#0a0f1a] relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
+    <section id="about" className="py-16 sm:py-20 bg-transparent dark:bg-transparent relative border-b border-slate-200/60 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-6">
         <SectionHeading
           title="About Me"
