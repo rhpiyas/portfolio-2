@@ -87,28 +87,32 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
 
         {/* Header Block */}
-        <div className="border-b border-slate-800/80 pb-8 mb-10">
-          <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium">
-              {categoryNames[project.category] || project.category}
-            </span>
-            {project.status && (
-              <span className="px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-800/30 text-cyan-300 text-xs font-medium">
-                {project.status}
-              </span>
-            )}
-          </div>
-
+        <div className="mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
             {project.name}
           </h1>
 
-          <p className="text-lg text-slate-400 leading-relaxed max-w-3xl">
+          <p className="text-lg text-slate-400 leading-relaxed max-w-3xl mb-6">
             {project.shortDescription}
           </p>
 
-          {/* Action Links */}
-          <div className="flex flex-wrap items-center gap-4 mt-6">
+          {/* Badges & Action Links */}
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            {/* Category Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0e1624] hover:bg-slate-800/80 border border-slate-800 hover:border-slate-700 text-slate-200 hover:text-white text-sm font-medium transition-all duration-200 cursor-default select-none">
+              <Layers size={16} className="text-blue-400" />
+              <span>{categoryNames[project.category] || project.category}</span>
+            </div>
+
+            {/* Status Badge */}
+            {project.status && (
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0e1624] hover:bg-slate-800/80 border border-slate-800 hover:border-slate-700 text-cyan-300 hover:text-cyan-200 text-sm font-medium transition-all duration-200 cursor-default select-none">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span>{project.status}</span>
+              </div>
+            )}
+
+            {/* Action Links */}
             {project.liveDemo && (
               <a
                 href={project.liveDemo}
@@ -144,6 +148,35 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <span>Research Publication</span>
               </a>
             )}
+          </div>
+        </div>
+
+        {/* Screenshot Gallery */}
+        <div className="mb-12">
+          <h2 className="text-xl font-bold text-white mb-4">
+            Project Visuals & Screenshots
+          </h2>
+          <div
+            className={`grid gap-6 ${
+              project.images.length > 1
+                ? "grid-cols-1 md:grid-cols-2"
+                : "grid-cols-1"
+            }`}
+          >
+            {project.images.map((imgSrc, idx) => (
+              <div
+                key={idx}
+                className="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-xl aspect-[16/10]"
+              >
+                <Image
+                  src={imgSrc}
+                  alt={`${project.name} preview ${idx + 1}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 800px"
+                  className="object-cover object-top"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -187,35 +220,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             <div className="text-sm font-semibold text-white">
               {categoryNames[project.category] || project.category}
             </div>
-          </div>
-        </div>
-
-        {/* Screenshot Gallery */}
-        <div className="mb-14">
-          <h2 className="text-xl font-bold text-white mb-4">
-            Project Visuals & Screenshots
-          </h2>
-          <div
-            className={`grid gap-6 ${
-              project.images.length > 1
-                ? "grid-cols-1 md:grid-cols-2"
-                : "grid-cols-1"
-            }`}
-          >
-            {project.images.map((imgSrc, idx) => (
-              <div
-                key={idx}
-                className="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-xl aspect-[16/10]"
-              >
-                <Image
-                  src={imgSrc}
-                  alt={`${project.name} preview ${idx + 1}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 800px"
-                  className="object-cover object-top"
-                />
-              </div>
-            ))}
           </div>
         </div>
 
