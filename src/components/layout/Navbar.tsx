@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Download } from "lucide-react";
 import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
 import { useActiveSection, smoothScrollTo } from "@/lib/hooks";
 
 interface NavItem {
@@ -23,7 +25,24 @@ const navItems: NavItem[] = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const activeSection = useActiveSection();
+  const rawActiveSection = useActiveSection();
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
+  // Detect if on project detail page
+  const isProjectPage = pathname.startsWith("/projects/");
+  const projectSlug = isProjectPage
+    ? pathname.replace(/^\/projects\/?/, "").split("/")[0]
+    : null;
+  const currentProject = projectSlug
+    ? projects.find((p) => p.slug === decodeURIComponent(projectSlug))
+    : null;
+
+  const activeSection = isHomePage
+    ? rawActiveSection
+    : isProjectPage
+    ? "projects"
+    : "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,22 +76,30 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-0.5 lg:gap-1">
-            {navItems.map((item) => (
-              <button
-                key={item.sectionId}
-                onClick={() => handleNavClick(item.sectionId)}
-                className={`relative px-2.5 lg:px-3 py-2 text-xs lg:text-sm transition-colors duration-200 ${
-                  activeSection === item.sectionId
-                    ? "text-white font-medium"
-                    : "text-slate-400 hover:text-white"
-                }`}
-              >
-                {item.label}
-                {activeSection === item.sectionId && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-blue-500 rounded-full" />
-                )}
-              </button>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.sectionId;
+              const isProjectItemOnProjectPage =
+                item.sectionId === "projects" && isProjectPage && currentProject;
+
+              return (
+                <button
+                  key={item.sectionId}
+                  onClick={() => handleNavClick(item.sectionId)}
+                  className={`relative px-2.5 lg:px-3 py-2 text-xs lg:text-sm transition-colors duration-200 ${
+                    isActive
+                      ? "text-white font-medium"
+                      : "text-slate-400 hover:text-white"
+                  }`}
+                >
+                  {isProjectItemOnProjectPage
+                    ? `Project - ${currentProject.name}`
+                    : item.label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-blue-500 rounded-full" />
+                  )}
+                </button>
+              );
+            })}
 
             {/* Resume Download */}
             <a
@@ -103,22 +130,30 @@ export default function Navbar() {
         }`}
       >
         <div className="bg-[#0a0f1a]/95 backdrop-blur-xl border-t border-white/5 px-6 py-4 space-y-1">
-          {navItems.map((item) => (
-            <button
-              key={item.sectionId}
-              onClick={() => handleNavClick(item.sectionId)}
-              className={`block w-full text-left px-4 py-3 rounded-lg text-sm transition-colors duration-200 ${
-                activeSection === item.sectionId
-                  ? "text-white bg-white/5"
-                  : "text-slate-400 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {item.label}
-              {activeSection === item.sectionId && (
-                <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full ml-2" />
-              )}
-            </button>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.sectionId;
+            const isProjectItemOnProjectPage =
+              item.sectionId === "projects" && isProjectPage && currentProject;
+
+            return (
+              <button
+                key={item.sectionId}
+                onClick={() => handleNavClick(item.sectionId)}
+                className={`block w-full text-left px-4 py-3 rounded-lg text-sm transition-colors duration-200 ${
+                  isActive
+                    ? "text-white bg-white/5 font-medium"
+                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {isProjectItemOnProjectPage
+                  ? `Project - ${currentProject.name}`
+                  : item.label}
+                {isActive && (
+                  <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full ml-2" />
+                )}
+              </button>
+            );
+          })}
 
           <a
             href={profile.resumePath}

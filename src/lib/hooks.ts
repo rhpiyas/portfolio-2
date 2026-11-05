@@ -42,9 +42,12 @@ export function useReducedMotion() {
 }
 
 export function smoothScrollTo(id: string) {
+  if (typeof window === "undefined") return;
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.location.href = id === "hero" ? "/" : `/#${id}`;
   }
 }
 

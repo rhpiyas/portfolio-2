@@ -153,7 +153,9 @@ export default function Footer() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
-            onClick={() => smoothScrollTo("hero")}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="fixed bottom-8 right-8 z-50 bg-blue-500/10 border border-blue-500/30 text-blue-400 p-3 rounded-xl hover:bg-blue-500/20 transition-colors duration-200 cursor-pointer backdrop-blur-md"
             aria-label="Back to top"
           >

@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { projects } from "@/data/projects";
 import { GithubIcon } from "@/components/ui/Icons";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -66,8 +68,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   };
 
   return (
-    <main className="min-h-screen bg-[#0a0f1a] text-slate-200 py-12 md:py-20">
-      <div className="max-w-5xl mx-auto px-6">
+    <>
+      <Navbar />
+      <main className="min-h-screen bg-[#0a0f1a] text-slate-200 pt-28 pb-16 md:pt-32 md:pb-20">
+        <div className="max-w-5xl mx-auto px-6">
         {/* Navigation Breadcrumb / Back Link */}
         <div className="mb-8">
           <Link
@@ -285,5 +289,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
       </div>
     </main>
-  );
+    <Footer />
+  </>
+);
 }
