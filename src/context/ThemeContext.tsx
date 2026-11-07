@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-export type Theme = "dark" | "light";
+export type Theme = "dark" | "light" | "apple";
 
 interface ThemeContextType {
   theme: Theme;
@@ -21,7 +21,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setMounted(true);
     try {
       const stored = localStorage.getItem("portfolio-theme") as Theme | null;
-      if (stored === "light" || stored === "dark") {
+      if (stored === "light" || stored === "dark" || stored === "apple") {
         setThemeState(stored);
         applyTheme(stored);
       } else {
@@ -39,12 +39,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const applyTheme = (newTheme: Theme) => {
     const root = document.documentElement;
+    root.classList.remove("dark", "apple");
     if (newTheme === "dark") {
       root.classList.add("dark");
+      root.style.colorScheme = "dark";
+    } else if (newTheme === "apple") {
+      root.classList.add("apple");
+      root.style.colorScheme = "light";
     } else {
-      root.classList.remove("dark");
+      root.style.colorScheme = "light";
     }
-    root.style.colorScheme = newTheme;
   };
 
   const setTheme = (newTheme: Theme) => {
@@ -58,8 +62,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   };
 
   const toggleTheme = () => {
-    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
+    // Cycle: dark -> light -> apple -> dark
+    if (theme === "dark") {
+      setTheme("light");
+    } else if (theme === "light") {
+      setTheme("apple");
+    } else {
+      setTheme("dark");
+    }
   };
 
   return (

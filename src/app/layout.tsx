@@ -66,12 +66,16 @@ export default function RootLayout({
                   var stored = localStorage.getItem('portfolio-theme');
                   var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                   var theme = stored ? stored : (prefersDark ? 'dark' : 'light');
+                  document.documentElement.classList.remove('dark', 'apple');
                   if (theme === 'dark') {
                     document.documentElement.classList.add('dark');
+                    document.documentElement.style.colorScheme = 'dark';
+                  } else if (theme === 'apple') {
+                    document.documentElement.classList.add('apple');
+                    document.documentElement.style.colorScheme = 'light';
                   } else {
-                    document.documentElement.classList.remove('dark');
+                    document.documentElement.style.colorScheme = 'light';
                   }
-                  document.documentElement.style.colorScheme = theme;
                 } catch (e) {}
               })();
             `,

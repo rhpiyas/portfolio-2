@@ -2,6 +2,27 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
+const appleBubbles = [
+  { size: 28, left: "7%", duration: 18, delay: -4, animation: "bubbleFloatA" },
+  { size: 54, left: "14%", duration: 22, delay: -12, animation: "bubbleFloatB" },
+  { size: 20, left: "22%", duration: 16, delay: -2, animation: "bubbleFloatC" },
+  { size: 78, left: "28%", duration: 26, delay: -16, animation: "bubbleFloatA" },
+  { size: 36, left: "37%", duration: 19, delay: -9, animation: "bubbleFloatB" },
+  { size: 24, left: "44%", duration: 17, delay: -6, animation: "bubbleFloatC" },
+  { size: 92, left: "51%", duration: 28, delay: -20, animation: "bubbleFloatA" },
+  { size: 42, left: "59%", duration: 21, delay: -11, animation: "bubbleFloatB" },
+  { size: 18, left: "66%", duration: 15, delay: -3, animation: "bubbleFloatC" },
+  { size: 68, left: "73%", duration: 24, delay: -14, animation: "bubbleFloatA" },
+  { size: 32, left: "81%", duration: 18, delay: -8, animation: "bubbleFloatB" },
+  { size: 48, left: "88%", duration: 23, delay: -17, animation: "bubbleFloatC" },
+  { size: 22, left: "94%", duration: 16, delay: -5, animation: "bubbleFloatA" },
+  { size: 60, left: "18%", duration: 25, delay: -7, animation: "bubbleFloatB" },
+  { size: 34, left: "48%", duration: 20, delay: -13, animation: "bubbleFloatC" },
+  { size: 84, left: "78%", duration: 27, delay: -19, animation: "bubbleFloatA" },
+  { size: 26, left: "33%", duration: 17, delay: -1, animation: "bubbleFloatB" },
+  { size: 40, left: "62%", duration: 21, delay: -15, animation: "bubbleFloatC" },
+];
+
 export default function ScrollGradientBackground() {
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, {
@@ -62,6 +83,37 @@ export default function ScrollGradientBackground() {
     "rgba(99, 102, 241, 0.14)",  // 1.00: Deep Indigo
   ]);
 
+  // ================= APPLE THEME ORBS (Vibrant cool oceanic water gradients) =================
+  const appleOrb1Color = useTransform(smoothProgress, breakpoints, [
+    "rgba(6, 182, 212, 0.52)",  // 0.00: Vibrant Ocean Cyan
+    "rgba(99, 102, 241, 0.48)", // 0.16: Royal Electric Indigo
+    "rgba(16, 185, 129, 0.46)", // 0.32: Emerald Aquamarine
+    "rgba(37, 99, 235, 0.50)",  // 0.48: Luminous Cobalt Blue
+    "rgba(129, 140, 248, 0.50)",// 0.65: Soft Royal Indigo
+    "rgba(20, 184, 166, 0.48)", // 0.82: Seafoam Aquamarine
+    "rgba(14, 165, 233, 0.52)", // 1.00: Deep Ocean Cyan
+  ]);
+
+  const appleOrb2Color = useTransform(smoothProgress, breakpoints, [
+    "rgba(56, 189, 248, 0.46)", // 0.00: Sky Blue
+    "rgba(168, 85, 247, 0.42)", // 0.16: Cosmic Violet
+    "rgba(45, 212, 191, 0.46)", // 0.32: Bright Aqua Teal
+    "rgba(99, 102, 241, 0.45)", // 0.48: Electric Indigo
+    "rgba(192, 132, 252, 0.44)",// 0.65: Soft Violet
+    "rgba(56, 189, 248, 0.46)", // 0.82: Ice Cyan
+    "rgba(99, 102, 241, 0.45)", // 1.00: Deep Indigo
+  ]);
+
+  const appleOrb3Color = useTransform(smoothProgress, breakpoints, [
+    "rgba(14, 165, 233, 0.38)", // 0.00: Luminous Water Blue
+    "rgba(129, 140, 248, 0.35)",// 0.16: Indigo
+    "rgba(52, 211, 153, 0.38)", // 0.32: Mint
+    "rgba(59, 130, 246, 0.38)", // 0.48: Cobalt
+    "rgba(168, 85, 247, 0.35)", // 0.65: Violet
+    "rgba(45, 212, 191, 0.38)", // 0.82: Teal
+    "rgba(56, 189, 248, 0.38)", // 1.00: Cyan
+  ]);
+
   // Smooth floating positional dynamics as user scrolls
   const orb1Y = useTransform(smoothProgress, [0, 1], ["0%", "65%"]);
   const orb1X = useTransform(smoothProgress, [0, 0.5, 1], ["0%", "15%", "-5%"]);
@@ -74,7 +126,7 @@ export default function ScrollGradientBackground() {
       {/* ================= LIGHT MODE AMBIENT LAYER ================= */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 pointer-events-none -z-10 overflow-hidden dark:hidden select-none"
+        className="fixed inset-0 pointer-events-none -z-10 overflow-hidden ambient-light-layer select-none"
       >
         {/* Clean neutral soothing off-white canvas */}
         <div className="absolute inset-0 bg-[#f8fafc]" />
@@ -112,7 +164,7 @@ export default function ScrollGradientBackground() {
       {/* ================= DARK MODE AMBIENT LAYER ================= */}
       <div
         aria-hidden="true"
-        className="fixed inset-0 pointer-events-none -z-10 overflow-hidden hidden dark:block select-none"
+        className="fixed inset-0 pointer-events-none -z-10 overflow-hidden ambient-dark-layer select-none"
       >
         {/* Deep rich space canvas */}
         <div className="absolute inset-0 bg-[#0a0f1a]" />
@@ -144,6 +196,78 @@ export default function ScrollGradientBackground() {
             backgroundImage:
               "radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
+          }}
+        />
+      </div>
+
+      {/* ================= APPLE LIQUID GLASS & WATER LAYER ================= */}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 pointer-events-none -z-10 overflow-hidden ambient-apple-layer select-none"
+      >
+        {/* Luminous crystal clear water canvas */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f2f8fd] via-[#ebf5fb] to-[#f3f9fe]" />
+
+        {/* Primary Floating Ambient Gradient Orb (Top Left) */}
+        <motion.div
+          style={{
+            backgroundColor: appleOrb1Color,
+            y: orb1Y,
+            x: orb1X,
+          }}
+          className="absolute -top-[10%] -left-[10%] w-[75vw] h-[75vw] max-w-[900px] max-h-[900px] rounded-full blur-[130px] sm:blur-[160px] opacity-75 will-change-transform"
+        />
+
+        {/* Secondary Floating Ambient Gradient Orb (Top Right) */}
+        <motion.div
+          style={{
+            backgroundColor: appleOrb2Color,
+            y: orb2Y,
+            x: orb2X,
+          }}
+          className="absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] max-w-[850px] max-h-[850px] rounded-full blur-[130px] sm:blur-[160px] opacity-70 will-change-transform"
+        />
+
+        {/* Center Aquatic Glow Orb */}
+        <motion.div
+          style={{
+            backgroundColor: appleOrb3Color,
+            y: orb2Y,
+            x: orb1X,
+          }}
+          className="absolute top-[45%] left-[20%] w-[55vw] h-[55vw] max-w-[700px] max-h-[700px] rounded-full blur-[140px] opacity-60 will-change-transform"
+        />
+
+        {/* Undulating liquid water caustic shimmer */}
+        <div
+          className="absolute inset-0 opacity-40 mix-blend-overlay pointer-events-none"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(186, 230, 253, 0.3) 40%, transparent 70%)",
+            animation: "waterCausticsGlow 14s ease-in-out infinite alternate",
+          }}
+        />
+
+        {/* Realistic Floating Water Bubbles (18 staggered moving bubbles) */}
+        {appleBubbles.map((bubble, idx) => (
+          <div
+            key={idx}
+            className="apple-water-bubble"
+            style={{
+              width: bubble.size,
+              height: bubble.size,
+              left: bubble.left,
+              animation: `${bubble.animation} ${bubble.duration}s ${bubble.delay}s infinite linear`,
+            }}
+          />
+        ))}
+
+        {/* Subtle crystal water glass sheen overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage: "radial-gradient(#0284c7 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
           }}
         />
       </div>
