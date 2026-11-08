@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   AlertCircle,
   Loader2,
+  RotateCcw,
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { profile } from "@/data/profile";
@@ -64,6 +65,24 @@ export default function Contact() {
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const handleClear = () => {
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    setStatus("idle");
+    setErrorMessage("");
+  };
+
+  const isFormFilled = Boolean(
+    formData.name.trim() ||
+      formData.email.trim() ||
+      formData.subject.trim() ||
+      formData.message.trim()
+  );
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -318,23 +337,38 @@ export default function Contact() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800/50 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-blue-600/20 cursor-pointer disabled:cursor-not-allowed"
-                >
-                  {submitting ? (
-                    <>
-                      <Loader2 size={16} className="animate-spin" />
-                      <span>Sending Message...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send size={16} />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </button>
+                <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="flex-1 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800/50 text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-blue-600/20 cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    {submitting ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" />
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    data-action="clear-form"
+                    onClick={handleClear}
+                    disabled={!isFormFilled || submitting}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/90 dark:hover:bg-slate-700/90 border-2 border-slate-300 hover:border-slate-400 dark:border-slate-600 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-200 dark:hover:text-white font-semibold text-sm transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-xs dark:shadow-none"
+                    aria-label="Clear form fields"
+                    title="Clear all fields"
+                  >
+                    <RotateCcw size={16} />
+                    <span>Clear</span>
+                  </button>
+                </div>
               </form>
             </div>
           </motion.div>
