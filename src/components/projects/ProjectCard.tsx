@@ -16,8 +16,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       className="group flex flex-col justify-between rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 overflow-hidden shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-xl hover:-translate-y-1"
     >
       <div>
-        {/* Project Thumbnail with overlay */}
-        <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-slate-950 overflow-hidden">
+        {/* Project Thumbnail */}
+        <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-slate-950 overflow-hidden border-b border-slate-100 dark:border-slate-800/60">
           <Image
             src={project.thumbnail}
             alt={project.name}
@@ -25,7 +25,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0e1624] via-transparent to-transparent opacity-80" />
+          {/* Dark mode subtle blend only; removed white fade from Light and Apple modes */}
+          <div className="hidden dark:block absolute inset-0 bg-gradient-to-t from-[#0e1624] via-transparent to-transparent opacity-80 pointer-events-none" />
         </div>
 
         {/* Content Body */}

@@ -238,17 +238,15 @@ export default function Hero() {
               style={{
                 rotateX,
                 rotateY,
-                transformStyle: "preserve-3d",
               }}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative w-full max-w-sm cursor-pointer select-none"
             >
-              {/* 3D Elevated Profile Card */}
+              {/* Profile Card (Locked as single unified surface) */}
               <div
-                style={{ transformStyle: "preserve-3d" }}
-                className="relative rounded-2xl bg-white dark:bg-gradient-to-b dark:from-[#131e30] dark:via-[#0f1726] dark:to-[#0a111c] border border-slate-200 dark:border-slate-700/60 p-6 shadow-xl dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_12px_28px_-8px_rgba(0,0,0,0.7)] transition-all duration-300 hover:border-slate-300 dark:hover:border-slate-500/80"
+                className="relative rounded-2xl bg-white dark:bg-gradient-to-b dark:from-[#131e30] dark:via-[#0f1726] dark:to-[#0a111c] border border-slate-200 dark:border-slate-700/60 p-6 shadow-xl dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_12px_28px_-8px_rgba(0,0,0,0.7)] transition-colors duration-300 hover:border-slate-300 dark:hover:border-slate-500/80"
               >
                 {/* 3D Top Rim Light */}
                 <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-blue-500/30 dark:via-white/25 to-transparent rounded-t-2xl pointer-events-none" />

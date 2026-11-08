@@ -112,10 +112,24 @@ html.apple ::-webkit-scrollbar-thumb:hover {
 
 /* =========================================================================
    APPLE LIQUID GLASS THEME STYLES
-   Transforms all content cards, boxes, badges & inputs into liquid glass
+   Transparent Frosted Glass:
+   - NO gradient on blocks/cards
+   - Pure translucent glass so the background gradient shows through
+   - High backdrop blur to keep card text crisp, high-contrast and prominent
    ========================================================================= */
 
-/* All main cards across all sections: About, Skills, Education, Projects, Achievements, Contact */
+/* Liquid Glass Navbar in Apple theme */
+html.apple nav {
+  background: rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55) !important;
+  box-shadow: 
+    0 10px 30px -4px rgba(14, 165, 233, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+/* All main cards across all sections: About, Skills, Education, Projects, Achievements, Contact, Hero */
 html.apple .rounded-2xl.bg-white,
 html.apple .rounded-2xl[class*="bg-white"],
 html.apple .rounded-xl.bg-white,
@@ -124,20 +138,28 @@ html.apple .group\/badge,
 html.apple div[class*="rounded-2xl"][class*="border-slate-200"],
 html.apple div[class*="rounded-xl"][class*="border-slate-200"],
 html.apple [class*="bg-white"][class*="rounded-2xl"],
-html.apple [class*="bg-white"][class*="rounded-xl"] {
-  background: rgba(255, 255, 255, 0.44) !important;
-  backdrop-filter: blur(28px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+html.apple [class*="bg-white"][class*="rounded-xl"],
+html.apple #hero div[class*="rounded-lg"][class*="bg-slate-50"],
+html.apple #about div[class*="rounded-2xl"],
+html.apple #skills div[class*="rounded-2xl"],
+html.apple #education div[class*="rounded-2xl"],
+html.apple #experience div[class*="rounded-2xl"],
+html.apple #projects div[class*="rounded-2xl"],
+html.apple #achievements div[class*="rounded-2xl"],
+html.apple #contact div[class*="rounded-2xl"],
+html.apple #contact a[class*="rounded-xl"][class*="border-slate-200"],
+html.apple #contact div[class*="rounded-xl"][class*="border-slate-200"] {
+  background: rgba(255, 255, 255, 0.28) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
   box-shadow: 
-    0 12px 36px 0 rgba(14, 165, 233, 0.08),
-    0 4px 12px 0 rgba(0, 0, 0, 0.02),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.02) !important;
+    0 8px 32px 0 rgba(14, 165, 233, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7) !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Card hover effect in Apple theme */
+/* Card hover effect in Apple theme: smooth elevation without any gradient */
 html.apple .rounded-2xl.bg-white:hover,
 html.apple .rounded-2xl[class*="bg-white"]:hover,
 html.apple .rounded-xl.bg-white:hover,
@@ -145,150 +167,133 @@ html.apple .rounded-xl[class*="bg-white"]:hover,
 html.apple div[class*="rounded-2xl"][class*="border-slate-200"]:hover,
 html.apple div[class*="rounded-xl"][class*="border-slate-200"]:hover,
 html.apple [class*="bg-white"][class*="rounded-2xl"]:hover,
-html.apple [class*="bg-white"][class*="rounded-xl"]:hover {
-  background: rgba(255, 255, 255, 0.64) !important;
-  border-color: rgba(255, 255, 255, 0.95) !important;
+html.apple [class*="bg-white"][class*="rounded-xl"]:hover,
+html.apple #about div[class*="rounded-2xl"]:hover,
+html.apple #skills div[class*="rounded-2xl"]:hover,
+html.apple #education div[class*="rounded-2xl"]:hover,
+html.apple #experience div[class*="rounded-2xl"]:hover,
+html.apple #projects div[class*="rounded-2xl"]:hover,
+html.apple #achievements div[class*="rounded-2xl"]:hover,
+html.apple #contact div[class*="rounded-2xl"]:hover,
+html.apple #contact a[class*="rounded-xl"][class*="border-slate-200"]:hover,
+html.apple #contact div[class*="rounded-xl"][class*="border-slate-200"]:hover {
+  background: rgba(255, 255, 255, 0.42) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
   box-shadow: 
-    0 20px 48px -6px rgba(14, 165, 233, 0.18),
-    0 8px 18px -2px rgba(0, 0, 0, 0.04),
-    inset 0 1px 2px 0 rgba(255, 255, 255, 1) !important;
+    0 14px 40px -4px rgba(14, 165, 233, 0.16),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9) !important;
+  transform: translateY(-2px) !important;
 }
 
 /* Glass buttons & skill tags in Apple theme */
 html.apple #skills span[class*="rounded-lg"],
-html.apple .inline-flex[class*="bg-slate-100"] {
-  background: rgba(255, 255, 255, 0.52) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+html.apple .inline-flex[class*="bg-slate-100"],
+html.apple #hero a[class*="rounded-lg"],
+html.apple #hero a[class*="rounded-xl"][class*="bg-white"],
+html.apple #hero div[class*="rounded-full"][class*="bg-blue-50"],
+html.apple footer a[class*="rounded-lg"],
+html.apple footer a[class*="inline-flex"],
+html.apple button[aria-label="Back to top"],
+html.apple .fixed.bottom-8.right-8 {
+  background: rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
   color: #0f172a !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 8px rgba(14, 165, 233, 0.06) !important;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    0 2px 8px rgba(14, 165, 233, 0.04) !important;
+  transition: all 0.2s ease !important;
 }
 
 html.apple #skills span[class*="rounded-lg"]:hover,
-html.apple .inline-flex[class*="bg-slate-100"]:hover {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(56, 189, 248, 0.7) !important;
+html.apple .inline-flex[class*="bg-slate-100"]:hover,
+html.apple #hero a[class*="rounded-lg"]:hover,
+html.apple #hero a[class*="rounded-xl"][class*="bg-white"]:hover,
+html.apple footer a[class*="rounded-lg"]:hover,
+html.apple footer a[class*="inline-flex"]:hover,
+html.apple button[aria-label="Back to top"]:hover,
+html.apple .fixed.bottom-8.right-8:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.6) !important;
   color: #0284c7 !important;
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.22), inset 0 1px 0 #ffffff !important;
+  box-shadow: 
+    0 4px 14px rgba(14, 165, 233, 0.18),
+    inset 0 1px 1px #ffffff !important;
+  transform: translateY(-1px) !important;
 }
 
 /* Glass inputs in Contact in Apple theme */
 html.apple input,
 html.apple textarea {
-  background: rgba(255, 255, 255, 0.5) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.75) !important;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.30) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #0f172a !important;
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.03), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
 }
 
 html.apple input:focus,
 html.apple textarea:focus {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(56, 189, 248, 0.8) !important;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25), inset 0 1px 0 #ffffff !important;
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-color: rgba(56, 189, 248, 0.85) !important;
+  box-shadow: 
+    0 0 0 3px rgba(56, 189, 248, 0.2), 
+    inset 0 1px 0 #ffffff !important;
+}
+
+/* Project filter buttons in Apple theme */
+html.apple #projects button[class*="rounded-xl"]:not(:has(.bg-blue-600)) {
+  background: rgba(255, 255, 255, 0.32) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #0f172a !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 2px 8px rgba(14, 165, 233, 0.04) !important;
+}
+
+/* Inner icons/small boxes */
+html.apple #about div[class*="rounded-xl"][class*="bg-slate-100"],
+html.apple #skills div[class*="rounded-xl"][class*="bg-blue-50"] {
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Timeline node in Experience in Apple theme */
+html.apple #experience .rounded-full.bg-white {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3), inset 0 1px 0 #ffffff !important;
 }
 
 /* Section divider borders in Apple theme */
 html.apple section {
-  border-color: rgba(255, 255, 255, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Hero profile card & photo must move together as one unified piece */
+html.apple #hero .rounded-2xl,
+html.apple #hero .rounded-2xl:hover,
+html.apple #hero .rounded-2xl *,
+html.apple #hero .rounded-2xl *:hover {
+  transform: none !important;
+}
+
+html.apple #hero .rounded-2xl [class*="aspect-square"] {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
 }
 
 html.apple footer {
-  border-color: rgba(255, 255, 255, 0.45) !important;
-}
-
-/* ================= Floating Water Bubbles (Apple Theme) ================= */
-.apple-water-bubble {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.38) 18%,
-    rgba(56, 189, 248, 0.14) 52%,
-    rgba(14, 165, 233, 0.32) 100%
-  );
-  box-shadow: 
-    inset -3px -4px 12px rgba(2, 132, 199, 0.25),
-    inset 2px 4px 8px rgba(255, 255, 255, 0.95),
-    0 8px 24px rgba(14, 165, 233, 0.16);
-  backdrop-filter: blur(2px);
-  will-change: transform;
-}
-
-.apple-water-bubble::after {
-  content: "";
-  position: absolute;
-  top: 16%;
-  left: 20%;
-  width: 24%;
-  height: 24%;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  filter: blur(0.5px);
-}
-
-@keyframes bubbleFloatA {
-  0% {
-    transform: translateY(105vh) translateX(0) scale(0.85);
-    opacity: 0;
-  }
-  8% {
-    opacity: 0.85;
-  }
-  50% {
-    transform: translateY(50vh) translateX(30px) scale(1.05);
-  }
-  92% {
-    opacity: 0.85;
-  }
-  100% {
-    transform: translateY(-8vh) translateX(-25px) scale(0.9);
-    opacity: 0;
-  }
-}
-
-@keyframes bubbleFloatB {
-  0% {
-    transform: translateY(105vh) translateX(0) scale(0.95);
-    opacity: 0;
-  }
-  8% {
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(48vh) translateX(-35px) scale(0.9);
-  }
-  92% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-8vh) translateX(20px) scale(1.02);
-    opacity: 0;
-  }
-}
-
-@keyframes bubbleFloatC {
-  0% {
-    transform: translateY(105vh) translateX(0) scale(0.9);
-    opacity: 0;
-  }
-  8% {
-    opacity: 0.75;
-  }
-  50% {
-    transform: translateY(52vh) translateX(20px) scale(1);
-  }
-  92% {
-    opacity: 0.75;
-  }
-  100% {
-    transform: translateY(-8vh) translateX(-15px) scale(0.9);
-    opacity: 0;
-  }
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
 @keyframes waterCausticsGlow {
