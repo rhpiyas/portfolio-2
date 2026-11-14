@@ -254,7 +254,7 @@ export default function Hero() {
                 {/* Photo (fixed & aligned with block) */}
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-6 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 shadow-md">
                   <Image
-                    src="/images/profile/my-profile-img.jpeg"
+                    src="/images/profile/hero.webp"
                     alt="Rakib Hasan Piyas"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
