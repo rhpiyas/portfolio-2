@@ -21,9 +21,16 @@ export const metadata: Metadata = {
   authors: [{ name: "Rakib Hasan Piyas", url: "https://rhpiyas.vercel.app/" }],
   creator: "Rakib Hasan Piyas",
   icons: {
-    icon: "/images/common/favicon.png",
-    apple: "/images/common/favicon.png",
+    icon: [
+      { url: "/images/favicon/favicon.ico" },
+      { url: "/images/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
+  manifest: "/images/favicon/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
