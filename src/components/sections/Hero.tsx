@@ -276,7 +276,7 @@ export default function Hero() {
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-500 dark:text-slate-400">Focus Areas</span>
-                    <span className="text-blue-600 dark:text-cyan-400 font-medium">Full Stack & AI</span>
+                    <span className="text-blue-600 dark:text-cyan-400 font-medium">Full Stack, AI & Girls</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-slate-500 dark:text-slate-400">Location</span>
