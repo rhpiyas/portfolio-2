@@ -5,7 +5,7 @@ import ScrollGradientBackground from "@/components/ui/ScrollGradientBackground";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rhpiyas.vercel.app"),
-  title: "Rakib Hasan Piyas | Software Engineering Student & Aspiring AI Developer",
+  title: "Rakib Hasan Piyas | SWE",
   description:
     "Personal portfolio of Rakib Hasan Piyas. Software Engineering student at Daffodil International University passionate about software development, competitive programming, and Artificial Intelligence.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://rhpiyas.vercel.app/",
-    title: "Rakib Hasan Piyas | Software Engineering Student & Aspiring AI Developer",
+    title: "Rakib Hasan Piyas | SWE",
     description:
       "Explore the projects, technical skills, achievements, and competitive programming journey of Rakib Hasan Piyas.",
     siteName: "Rakib Hasan Piyas Portfolio",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rakib Hasan Piyas | Software Engineering Student & Aspiring AI Developer",
+    title: "Rakib Hasan Piyas | SWE",
     description:
       "Explore the projects, technical skills, achievements, and competitive programming journey of Rakib Hasan Piyas.",
     images: ["/images/profile/my-profile-img.jpeg"],
