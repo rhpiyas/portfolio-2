@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Rakib Hasan Piyas Portfolio",
     images: [
       {
-        url: "/images/profile/hero.webp",
+        url: "/images/profile/hero-dark.webp",
         width: 1200,
         height: 630,
         alt: "Rakib Hasan Piyas",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "Rakib Hasan Piyas | SWE",
     description:
       "Explore the projects, technical skills, achievements, and competitive programming journey of Rakib Hasan Piyas.",
-    images: ["/images/profile/hero.webp"],
+    images: ["/images/profile/hero-dark.webp"],
   },
 };
 

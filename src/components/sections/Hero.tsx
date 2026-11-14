@@ -251,17 +251,36 @@ export default function Hero() {
                 {/* 3D Top Rim Light */}
                 <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-blue-500/30 dark:via-white/25 to-transparent rounded-t-2xl pointer-events-none" />
 
-                {/* Photo (fixed & aligned with block) */}
+                {/* Photo (fixed & aligned with block - theme responsive) */}
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-6 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 shadow-md">
+                  {/* Dark Mode Photo */}
                   <Image
-                    src="/images/profile/hero.webp"
-                    alt="Rakib Hasan Piyas"
+                    src="/images/profile/hero-dark.webp"
+                    alt="Rakib Hasan Piyas - Dark Theme"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
                     priority
-                    className="object-cover object-top"
+                    className="hero-img-dark"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 dark:from-[#0d1522]/80 via-transparent to-transparent pointer-events-none" />
+                  {/* Light Mode Photo */}
+                  <Image
+                    src="/images/profile/hero-light.webp"
+                    alt="Rakib Hasan Piyas - Light Theme"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                    className="hero-img-light"
+                  />
+                  {/* Apple Mode Photo */}
+                  <Image
+                    src="/images/profile/hero-apple.webp"
+                    alt="Rakib Hasan Piyas - Apple Theme"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    priority
+                    className="hero-img-apple"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 dark:from-[#0d1522]/80 via-transparent to-transparent pointer-events-none z-20" />
                 </div>
 
                 {/* Quick Profile Summary Card */}

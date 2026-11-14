@@ -321,6 +321,42 @@ html.apple #hero .rounded-2xl [class*="aspect-square"] {
   box-shadow: none !important;
 }
 
+/* ================= Theme-based Hero Profile Images ================= */
+.hero-img-dark,
+.hero-img-light,
+.hero-img-apple {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top !important;
+  transition: opacity 0.35s ease-in-out !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Default / Dark theme */
+html.dark .hero-img-dark {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 10 !important;
+}
+
+/* Light theme */
+html:not(.dark):not(.apple) .hero-img-light {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 10 !important;
+}
+
+/* Apple theme */
+html.apple .hero-img-apple {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 10 !important;
+}
+
 html.apple footer {
   background: rgba(255, 255, 255, 0.25) !important;
   backdrop-filter: blur(24px) saturate(180%) !important;
