@@ -4,6 +4,9 @@ import { useState, useEffect, useMemo } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import Image from "next/image";
+import heroDark from "../../../public/images/profile/hero-dark.webp";
+import heroLight from "../../../public/images/profile/hero-light.webp";
+import heroApple from "../../../public/images/profile/hero-apple.webp";
 import { profile } from "@/data/profile";
 import { smoothScrollTo } from "@/lib/hooks";
 import { GithubIcon, LinkedinIcon, InstagramIcon, GmailIcon } from "@/components/ui/Icons";
@@ -255,7 +258,7 @@ export default function Hero() {
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-6 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 shadow-md">
                   {/* Dark Mode Photo */}
                   <Image
-                    src="/images/profile/hero-dark.webp"
+                    src={heroDark}
                     alt="Rakib Hasan Piyas - Dark Theme"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
@@ -264,7 +267,7 @@ export default function Hero() {
                   />
                   {/* Light Mode Photo */}
                   <Image
-                    src="/images/profile/hero-light.webp"
+                    src={heroLight}
                     alt="Rakib Hasan Piyas - Light Theme"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
@@ -273,7 +276,7 @@ export default function Hero() {
                   />
                   {/* Apple Mode Photo */}
                   <Image
-                    src="/images/profile/hero-apple.webp"
+                    src={heroApple}
                     alt="Rakib Hasan Piyas - Apple Theme"
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
