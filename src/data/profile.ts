@@ -3,7 +3,7 @@ export const profile = {
   shortName: "Piyas",
   title: "Software Engineering Student & Aspiring AI Developer",
   roles: ["Student", "Competitive Problem Solver", "Full-stack Developer", "Open Source Enthusiast"],
-  email: "rakibhasanpiyas97@gmail.com",
+  email: "contact@rhpiyas.work",
   phone: "+880 1632725621",
   location: "Dhaka, Bangladesh",
   birthday: "September 20, 2004",
@@ -33,6 +33,6 @@ export const profile = {
   // Place your resume PDF at /public/resume/resume.pdf when available.
   resumePath: "/resume/resume.pdf",
 
-  formSubmitEmail: "rakibhasanpiyas97@gmail.com",
+  formSubmitEmail: "contact@rhpiyas.work",
 } as const;
 
