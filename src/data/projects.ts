@@ -3,7 +3,7 @@ export interface Project {
   name: string;
   shortDescription: string;
   description: string;
-  category: "academic" | "web" | "personal" | "ai";
+  category: "academic" | "hackathon" | "personal" | "ai";
   role: string;
   date: string;
   status?: string;
@@ -12,6 +12,7 @@ export interface Project {
   features: string[];
   github?: string;
   liveDemo?: string;
+  demoVideo?: string;
   researchPaper?: string;
   thumbnail: string;
   images: string[];
@@ -19,9 +20,9 @@ export interface Project {
 
 export const projectCategories = [
   { id: "all", label: "All" },
-  { id: "academic", label: "Academic Projects" },
-  { id: "web", label: "Web Development" },
   { id: "personal", label: "Personal Projects" },
+  { id: "academic", label: "Academic Projects" },
+  { id: "hackathon", label: "Hackathon Project" },
 ] as const;
 
 export const projects: Project[] = [
@@ -32,10 +33,10 @@ export const projects: Project[] = [
       "A climate-adaptive crop rotation and soil health planner for Bangladesh, built for NASA Space Apps Challenge.",
     description:
       "Agro Cosmic Weave is a climate-adaptive crop rotation and soil health planner developed for Bangladesh as part of the NASA International Space Apps Challenge 2026 by Team SPIDERX. The platform empowers farmers, agricultural extension officers, and researchers to design sustainable crop rotations that conserve critical groundwater, enhance soil organic matter, and withstand extreme climate vulnerabilities.\n\nCovering all 64 districts of Bangladesh, the application integrates 30-year climate averages and satellite Earth observations directly from NASA Earth data services—including NASA POWER (solar radiation, rainfall, and evapotranspiration), MODIS (vegetation health and land surface temperature), SMAP (soil moisture), and NASADEM (elevation). It features an interactive Crop Rotation Optimizer, What-If Climate Stress Simulator, Soil & Water Analytics, and an exportable Farm Action Dossier.\n\nThe system is built with a local-first, privacy-respecting architecture using Next.js 14, React 18, TypeScript, Tailwind CSS, and Supabase (PostgreSQL with automated Edge Functions and cron syncs). Designed as an offline-capable Progressive Web App (PWA) with full bilingual support in English and Bangla, all optimization calculations run directly in the farmer's browser without requiring user sign-in or transmitting sensitive farm data.",
-    category: "web",
+    category: "hackathon",
     role: "Team Leader & Project Coordinator",
     date: "November 14, 2026",
-    status: "NASA Space Apps Challenge 2026",
+    demoVideo: "https://youtu.be/stbTSw9aODA",
     course: "NASA Space Apps Challenge (Team SPIDERX)",
     technologies: [
       "Next.js 14",
@@ -233,7 +234,7 @@ export const projects: Project[] = [
     shortDescription: "A beginner-friendly counter web application featuring Click, Decrease, and Clear actions.",
     description:
       "Count Me is a beginner-friendly web application built with HTML5, CSS3, and Vanilla JavaScript. Designed as a learning project, it features three essential functions — Click, Decrease, and Clear — to manage a counter with instant visual updates.\n\nThe application showcases key front-end development concepts such as DOM manipulation, event-driven programming, and responsive user interaction. Its clean interface and lightweight implementation make it an excellent demonstration of fundamental JavaScript skills and modern web development practices.",
-    category: "web",
+    category: "personal",
     role: "Solo Developer",
     date: "July 10, 2026",
     technologies: ["HTML", "CSS", "JavaScript", "VS Code", "GitHub"],

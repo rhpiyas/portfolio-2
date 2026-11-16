@@ -13,7 +13,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { projects } from "@/data/projects";
-import { GithubIcon } from "@/components/ui/Icons";
+import { GithubIcon, YoutubeIcon } from "@/components/ui/Icons";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   const categoryNames: Record<string, string> = {
     academic: "Academic Project",
-    web: "Web Development",
+    hackathon: "Hackathon Project",
     personal: "Personal Project",
     ai: "Artificial Intelligence",
   };
@@ -110,6 +110,19 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
                 <span>{project.status}</span>
               </div>
+            )}
+
+            {/* Demonstration Video Link */}
+            {project.demoVideo && (
+              <a
+                href={project.demoVideo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 border-slate-300 dark:bg-slate-900 dark:hover:bg-slate-800 border dark:border-slate-700/80 text-red-600 dark:text-red-400 font-medium text-sm transition-colors shadow-2xs group"
+              >
+                <YoutubeIcon size={18} className="text-red-600 dark:text-red-500 group-hover:scale-110 transition-transform" />
+                <span>Demonstration Video</span>
+              </a>
             )}
 
             {/* Action Links */}

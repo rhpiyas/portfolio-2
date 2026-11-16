@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Globe, ArrowUpRight, BookOpen } from "lucide-react";
 import { Project } from "@/data/projects";
-import { GithubIcon } from "@/components/ui/Icons";
+import { GithubIcon, YoutubeIcon } from "@/components/ui/Icons";
 
 interface ProjectCardProps {
   project: Project;
@@ -57,6 +57,18 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </Link>
 
         <div className="flex items-center gap-3">
+          {project.demoVideo && (
+            <a
+              href={project.demoVideo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 transition-colors"
+              aria-label={`${project.name} demonstration video`}
+            >
+              <YoutubeIcon size={16} />
+            </a>
+          )}
+
           {project.github && (
             <a
               href={project.github}
