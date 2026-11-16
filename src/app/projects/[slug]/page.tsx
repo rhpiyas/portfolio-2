@@ -96,14 +96,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             {project.shortDescription}
           </p>
 
-          {/* Badges & Action Links */}
+          {/* Action Links & Badges */}
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            {/* Category Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 border-slate-200 dark:bg-[#0e1624] dark:hover:bg-slate-800/80 border dark:border-slate-800 dark:hover:border-slate-700 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white text-sm font-medium transition-all duration-200 cursor-default select-none shadow-2xs">
-              <Layers size={16} className="text-blue-500 dark:text-blue-400" />
-              <span>{categoryNames[project.category] || project.category}</span>
-            </div>
-
             {/* Status Badge */}
             {project.status && (
               <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 border-slate-200 dark:bg-[#0e1624] dark:hover:bg-slate-800/80 border dark:border-slate-800 dark:hover:border-slate-700 text-cyan-600 dark:text-cyan-300 hover:text-cyan-700 dark:hover:text-cyan-200 text-sm font-medium transition-all duration-200 cursor-default select-none shadow-2xs">
