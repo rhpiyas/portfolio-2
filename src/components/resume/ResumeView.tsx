@@ -412,15 +412,26 @@ export default function ResumeView({ data }: ResumeViewProps) {
                     <h2 className="text-xs sm:text-[13px] font-bold tracking-wider text-gray-900 uppercase border-b border-gray-300 pb-1 mb-2.5">
                       Honors & Certifications
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-xs sm:text-[13px]">
+                    <div className="space-y-2 text-xs sm:text-[13px]">
                       {certifications.map((cert, idx) => (
-                        <div key={idx} className="resume-entry flex items-baseline justify-between gap-x-2">
-                          <span className="font-semibold text-gray-900 truncate">
-                            {cert.title}
-                          </span>
-                          <span className="text-gray-500 text-xs shrink-0">
-                            {cert.date}
-                          </span>
+                        <div
+                          key={idx}
+                          className="resume-entry flex flex-wrap items-baseline justify-between gap-x-3"
+                        >
+                          <div>
+                            <span className="font-bold text-gray-900">{cert.title}</span>
+                            {cert.issuer && (
+                              <>
+                                <span className="text-gray-400 mx-2">&bull;</span>
+                                <span className="text-gray-700">{cert.issuer}</span>
+                              </>
+                            )}
+                          </div>
+                          {cert.date && (
+                            <span className="text-xs font-semibold text-gray-500 shrink-0">
+                              {cert.date}
+                            </span>
+                          )}
                         </div>
                       ))}
                     </div>
