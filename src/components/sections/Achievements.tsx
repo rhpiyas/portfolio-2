@@ -26,14 +26,15 @@ export default function Achievements() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "100px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-10"
         >
           {achievements.map((item, idx) => (
             <motion.div
               key={idx}
               variants={fadeInUp}
-              className="rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between group overflow-hidden"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-[border-color,box-shadow,background-color] duration-200 shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-xl flex flex-col justify-between group overflow-hidden transform-gpu"
             >
               <div>
                 {/* Certificate Thumbnail (Flush with card border) */}
@@ -45,6 +46,7 @@ export default function Achievements() {
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover"
+                      loading="eager"
                     />
                   </div>
                 )}

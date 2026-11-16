@@ -19,7 +19,7 @@ export const achievements: Achievement[] = [
     issuer: "DIU Software Engineering Club",
     date: "May 16, 2025",
     description: "Participated in the Code Trap Programming Contest organized by the DIU Software Engineering Club.",
-    image: "/images/achievements/codetrap-spring25.png",
+    image: "/images/achievements/codetrap-spring25.webp",
   },
   {
     title: "DIU Code Trap Programming Contest – Summer 2025",

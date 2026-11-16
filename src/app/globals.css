@@ -156,7 +156,7 @@ html.apple #contact div[class*="rounded-xl"][class*="border-slate-200"] {
   box-shadow: 
     0 8px 32px 0 rgba(14, 165, 233, 0.08),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.7) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Card hover effect in Apple theme: smooth elevation without any gradient */
