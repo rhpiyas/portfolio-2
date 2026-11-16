@@ -26,6 +26,43 @@ export const projectCategories = [
 
 export const projects: Project[] = [
   {
+    slug: "agro-cosmic-weave",
+    name: "Agro Cosmic Weave",
+    shortDescription:
+      "A climate-adaptive crop rotation and soil health planner for Bangladesh, built for NASA Space Apps Challenge.",
+    description:
+      "Agro Cosmic Weave is a climate-adaptive crop rotation and soil health planner developed for Bangladesh as part of the NASA International Space Apps Challenge 2026 by Team SPIDERX. The platform empowers farmers, agricultural extension officers, and researchers to design sustainable crop rotations that conserve critical groundwater, enhance soil organic matter, and withstand extreme climate vulnerabilities.\n\nCovering all 64 districts of Bangladesh, the application integrates 30-year climate averages and satellite Earth observations directly from NASA Earth data services—including NASA POWER (solar radiation, rainfall, and evapotranspiration), MODIS (vegetation health and land surface temperature), SMAP (soil moisture), and NASADEM (elevation). It features an interactive Crop Rotation Optimizer, What-If Climate Stress Simulator, Soil & Water Analytics, and an exportable Farm Action Dossier.\n\nThe system is built with a local-first, privacy-respecting architecture using Next.js 14, React 18, TypeScript, Tailwind CSS, and Supabase (PostgreSQL with automated Edge Functions and cron syncs). Designed as an offline-capable Progressive Web App (PWA) with full bilingual support in English and Bangla, all optimization calculations run directly in the farmer's browser without requiring user sign-in or transmitting sensitive farm data.",
+    category: "web",
+    role: "Team Leader & Project Coordinator",
+    date: "November 14, 2026",
+    status: "NASA Space Apps Challenge 2026",
+    course: "NASA Space Apps Challenge (Team SPIDERX)",
+    technologies: [
+      "Next.js 14",
+      "React 18",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase (PostgreSQL & Edge Functions)",
+      "NASA Earth Data (POWER, MODIS, SMAP, NASADEM)",
+      "PWA (Offline-Ready)",
+      "Framer Motion",
+      "Vercel",
+    ],
+    features: [
+      "Crop Rotation Optimizer recommending climate-resilient rotations across all 64 districts of Bangladesh",
+      "Live & historical NASA Earth data integration (POWER, MODIS, SMAP, NASADEM)",
+      "What-If Climate Simulator for testing droughts, heatwaves, and flood scenarios",
+      "Soil & Water Analytics featuring 3-year soil organic matter and groundwater savings projection",
+      "Printable & downloadable Farm Action Dossier report with tailored soil management advice",
+      "Full bilingual interface supporting both English and Bangla with Dark/Light theme switching",
+      "Privacy-centric local-first PWA architecture with full offline capability",
+    ],
+    github: "https://github.com/codebynazmul/F-S",
+    liveDemo: "https://fieldshift-space-apps-challenge.vercel.app/",
+    thumbnail: "/images/projects/Agro-cosmic/Agro-cosmic-1.webp",
+    images: ["/images/projects/Agro-cosmic/Agro-cosmic-1.webp"],
+  },
+  {
     slug: "face-entry-pro",
     name: "Face Entry Pro",
     shortDescription: "AI-Powered Biometric Attendance & Campus Security System.",
