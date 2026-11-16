@@ -29,9 +29,8 @@ export const profile = {
     githubContributions: "2000+",
   },
 
-  // NOTE: No resume PDF exists in the original portfolio.
-  // Place your resume PDF at /public/resume/resume.pdf when available.
-  resumePath: "/resume/resume.pdf",
+  // Dynamic resume route generated from portfolio data
+  resumePath: "/resume",
 
   formSubmitEmail: "contact@rhpiyas.work",
 } as const;

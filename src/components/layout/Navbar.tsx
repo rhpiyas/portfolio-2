@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, FileText } from "lucide-react";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { useActiveSection, smoothScrollTo } from "@/lib/hooks";
@@ -124,13 +124,14 @@ export default function Navbar() {
               <ThemeToggle />
             </div>
 
-            {/* Resume Download */}
+            {/* Resume Link */}
             <a
               href={profile.resumePath}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-1.5 lg:ml-2.5 flex items-center gap-1.5 lg:gap-2 border border-blue-500/50 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg px-3 lg:px-4 py-2 text-xs lg:text-sm font-medium transition-colors duration-200"
             >
-              <Download size={16} />
+              <FileText size={16} />
               <span>Resume</span>
             </a>
           </div>
@@ -184,11 +185,13 @@ export default function Navbar() {
           <div className="pt-2 mt-2">
             <a
               href={profile.resumePath}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center gap-2 px-4 py-2.5 border border-blue-500/50 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg text-sm font-medium transition-colors duration-200"
             >
-              <Download size={16} />
-              <span>Download Resume</span>
+              <FileText size={16} />
+              <span>View Resume</span>
             </a>
           </div>
         </div>

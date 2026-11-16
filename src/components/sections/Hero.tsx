@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail, FileText } from "lucide-react";
 import Image from "next/image";
 import heroDark from "../../../public/images/profile/hero-dark.webp";
 import heroLight from "../../../public/images/profile/hero-light.webp";
@@ -153,11 +153,12 @@ export default function Hero() {
 
               <a
                 href={profile.resumePath}
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border-slate-300 dark:bg-slate-900/80 dark:hover:bg-slate-800 dark:text-slate-200 dark:border-slate-700/60 font-semibold text-sm transition-all duration-200 hover:border-slate-400 dark:hover:border-slate-500 cursor-pointer hover:translate-y-[-1px] shadow-xs dark:shadow-none"
               >
-                <Download size={16} className="text-cyan-600 dark:text-cyan-400" />
-                <span>Download Resume</span>
+                <FileText size={16} className="text-cyan-600 dark:text-cyan-400" />
+                <span>View Resume</span>
               </a>
             </motion.div>
 
