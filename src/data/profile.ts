@@ -9,7 +9,7 @@ export const profile = {
   birthday: "September 20, 2004",
   degree: "B.Sc. in Software Engineering",
   university: "Daffodil International University",
-  website: "https://rhpiyas.vercel.app/",
+  website: "https://rhpiyas.work",
 
   bio: "I am Rakib Hasan Piyas, currently pursuing a B.Sc. in Software Engineering at Daffodil International University. I am passionate about software development, competitive programming, and continuously expanding my technical skills. My current focus is web development, data structures & algorithms, and building real-world projects. I also have a strong interest in Artificial Intelligence and aim to pursue AI development as part of my future career.",
 

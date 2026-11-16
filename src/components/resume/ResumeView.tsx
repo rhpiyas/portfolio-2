@@ -196,7 +196,7 @@ export default function ResumeView({ data }: ResumeViewProps) {
                 className="inline-flex items-center gap-1 hover:text-blue-700 transition-colors font-medium"
               >
                 <Globe size={12} className="text-gray-500" />
-                <span>rhpiyas.vercel.app</span>
+                <span>rhpiyas.work</span>
               </a>
               <span className="text-gray-300">&bull;</span>
 

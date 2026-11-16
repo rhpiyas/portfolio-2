@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `Resume | ${profile.name}`,
     description: `Official professional ATS-friendly resume of ${profile.name}. View qualifications, education, featured projects, technical skills, and achievements.`,
-    url: "https://rhpiyas.vercel.app/resume",
+    url: "https://rhpiyas.work/resume",
   },
 };
 
