@@ -37,6 +37,14 @@ export const achievements: Achievement[] = [
       "Earned a certification after successfully completing the Object-Oriented Programming in Java course.",
     image: "/images/achievements/oop-certificate.webp",
   },
+  {
+    title: "NASA Space Apps Challenge, 2026",
+    issuer: "NASA",
+    date: "November 15, 2026",
+    description:
+      "Participated in the NASA Space Apps Challenge 2026 organized by NASA.",
+    image: "/images/achievements/NASA-26.webp",
+  },
 ];
 
 export interface Experience {
