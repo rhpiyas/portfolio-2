@@ -144,7 +144,7 @@ export default function Contact() {
             variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-30px" }}
             className="lg:col-span-5 flex flex-col justify-between space-y-6 lg:space-y-0"
           >
             <div>
@@ -222,7 +222,7 @@ export default function Contact() {
             variants={slideInRight}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-30px" }}
             className="lg:col-span-7"
           >
             <div className="p-8 rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 shadow-lg dark:shadow-xl">

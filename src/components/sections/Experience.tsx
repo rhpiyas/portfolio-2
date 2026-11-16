@@ -21,7 +21,7 @@ export default function Experience() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-30px" }}
           className="mt-12 relative border-l-2 border-slate-300 dark:border-slate-800 ml-4 sm:ml-6 space-y-12 pl-6 sm:pl-8 max-w-4xl"
         >
           {experiences.map((exp, idx) => {

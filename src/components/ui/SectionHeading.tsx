@@ -15,7 +15,7 @@ export default function SectionHeading({ title, subtitle, className = "" }: Sect
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-30px" }}
       className={`text-left mb-12 sm:mb-14 ${className}`}
     >
       <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">{title}</h2>

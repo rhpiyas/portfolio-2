@@ -156,10 +156,10 @@ html.apple #contact div[class*="rounded-xl"][class*="border-slate-200"] {
   box-shadow: 
     0 8px 32px 0 rgba(14, 165, 233, 0.08),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.7) !important;
-  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Card hover effect in Apple theme: smooth elevation without any gradient */
+/* Card hover effect in Apple theme: identical elevation (-4px) & feel to dark/light theme */
 html.apple .rounded-2xl.bg-white:hover,
 html.apple .rounded-2xl[class*="bg-white"]:hover,
 html.apple .rounded-xl.bg-white:hover,
@@ -177,12 +177,12 @@ html.apple #achievements div[class*="rounded-2xl"]:hover,
 html.apple #contact div[class*="rounded-2xl"]:hover,
 html.apple #contact a[class*="rounded-xl"][class*="border-slate-200"]:hover,
 html.apple #contact div[class*="rounded-xl"][class*="border-slate-200"]:hover {
-  background: rgba(255, 255, 255, 0.42) !important;
+  background: rgba(255, 255, 255, 0.38) !important;
   border-color: rgba(255, 255, 255, 0.8) !important;
   box-shadow: 
-    0 14px 40px -4px rgba(14, 165, 233, 0.16),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9) !important;
-  transform: translateY(-2px) !important;
+    0 16px 36px -4px rgba(14, 165, 233, 0.14),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85) !important;
+  transform: translateY(-4px) !important;
 }
 
 /* Glass buttons & skill tags in Apple theme */
@@ -203,7 +203,7 @@ html.apple .fixed.bottom-8.right-8 {
   box-shadow: 
     inset 0 1px 1px rgba(255, 255, 255, 0.8),
     0 2px 8px rgba(14, 165, 233, 0.04) !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* Clear Form Button in Apple Theme - Distinct, prominent glass border */
@@ -216,7 +216,7 @@ html.apple button[data-action="clear-form"] {
   box-shadow: 
     inset 0 1.5px 1px 0 #ffffff,
     0 2px 10px rgba(14, 165, 233, 0.08) !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 html.apple #skills span[class*="rounded-lg"]:hover,
@@ -227,13 +227,12 @@ html.apple footer a[class*="rounded-lg"]:hover,
 html.apple footer a[class*="inline-flex"]:hover,
 html.apple button[aria-label="Back to top"]:hover,
 html.apple .fixed.bottom-8.right-8:hover {
-  background: rgba(255, 255, 255, 0.6) !important;
-  border-color: rgba(56, 189, 248, 0.6) !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
   color: #0284c7 !important;
   box-shadow: 
-    0 4px 14px rgba(14, 165, 233, 0.18),
+    0 4px 14px rgba(14, 165, 233, 0.15),
     inset 0 1px 1px #ffffff !important;
-  transform: translateY(-1px) !important;
 }
 
 html.apple button[data-action="clear-form"]:hover:not(:disabled) {
@@ -244,7 +243,6 @@ html.apple button[data-action="clear-form"]:hover:not(:disabled) {
     0 0 0 1px rgba(56, 189, 248, 0.4),
     0 4px 16px rgba(14, 165, 233, 0.22),
     inset 0 1.5px 1px #ffffff !important;
-  transform: translateY(-1px) !important;
 }
 
 html.apple button[data-action="clear-form"]:disabled {

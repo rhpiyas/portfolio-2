@@ -20,7 +20,7 @@ export default function AnimatedSection({
       variants={fadeInUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-30px" }}
       className={className}
     >
       {children}

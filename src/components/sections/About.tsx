@@ -85,7 +85,7 @@ export default function About() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-30px" }}
             className="lg:col-span-7 flex flex-col justify-between space-y-6 lg:space-y-0"
           >
             <div className="space-y-4">
@@ -116,7 +116,7 @@ export default function About() {
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-30px" }}
             className="lg:col-span-5 grid grid-cols-2 lg:grid-rows-2 gap-3.5 sm:gap-4 lg:h-full"
           >
             {stats.map((stat, idx) => (
@@ -143,7 +143,7 @@ export default function About() {
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-30px" }}
           className="mt-12 sm:mt-14"
         >
           <div className="mb-6">
