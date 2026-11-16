@@ -282,7 +282,7 @@ export const projects: Project[] = [
       "Buzzer notification when parking is full",
       "Embedded automation system",
     ],
-    researchPaper: "https://www.researchgate.net/publication/404082539_Smart_Parking_System",
+    researchPaper: "https://www.researchgate.net/publication/415111781_Smart_Parking_System",
     thumbnail: "/images/projects/smart-parking/smart-parking1.webp",
     images: [
       "/images/projects/smart-parking/smart-parking1.webp",
