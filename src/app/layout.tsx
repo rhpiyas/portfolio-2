@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import ScrollGradientBackground from "@/components/ui/ScrollGradientBackground";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rhpiyas.vercel.app"),
+  metadataBase: new URL("https://rhpiyas.work"),
   title: "Rakib Hasan Piyas | SWE",
   description:
     "Personal portfolio of Rakib Hasan Piyas. Software Engineering student at Daffodil International University passionate about software development, competitive programming, and Artificial Intelligence.",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Portfolio",
     "Daffodil International University",
   ],
-  authors: [{ name: "Rakib Hasan Piyas", url: "https://rhpiyas.vercel.app/" }],
+  authors: [{ name: "Rakib Hasan Piyas", url: "https://rhpiyas.work" }],
   creator: "Rakib Hasan Piyas",
   icons: {
     icon: [
@@ -34,26 +34,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rhpiyas.vercel.app/",
-    title: "Rakib Hasan Piyas | SWE",
+    url: "https://rhpiyas.work",
+    title: "Rakib Hasan Piyas | Software Engineering Student & Aspiring AI Developer",
     description:
       "Explore the projects, technical skills, achievements, and competitive programming journey of Rakib Hasan Piyas.",
     siteName: "Rakib Hasan Piyas Portfolio",
     images: [
       {
-        url: "/images/profile/hero-dark.webp",
+        url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Rakib Hasan Piyas",
+        alt: "Rakib Hasan Piyas - Software Engineering Student | Aspiring AI Developer",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rakib Hasan Piyas | SWE",
+    title: "Rakib Hasan Piyas | Software Engineering Student & Aspiring AI Developer",
     description:
       "Explore the projects, technical skills, achievements, and competitive programming journey of Rakib Hasan Piyas.",
-    images: ["/images/profile/hero-dark.webp"],
+    images: ["/images/og-image.png"],
+    creator: "@rhpiyas",
   },
 };
 
