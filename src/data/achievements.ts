@@ -38,6 +38,14 @@ export const achievements: Achievement[] = [
     image: "/images/achievements/oop-certificate.webp",
   },
   {
+    title: "DIU Breakout Algorithm – Spring 2026",
+    issuer: "DIU Software Engineering Club",
+    date: "June 12, 2026",
+    description:
+      "Participated in the Breakout Algorithm Programming Contest organized by the DIU Software Engineering Club.",
+    image: "/images/achievements/Breakout-algorithm.webp",
+  },
+  {
     title: "NASA Space Apps Challenge, 2026",
     issuer: "NASA",
     date: "November 15, 2026",
