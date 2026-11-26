@@ -68,7 +68,7 @@ export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
     transitionTimerRef.current = setTimeout(() => {
       document.documentElement.classList.remove("theme-transitioning");
       transitionTimerRef.current = null;
-    }, 450);
+    }, 480);
   };
 
   return (

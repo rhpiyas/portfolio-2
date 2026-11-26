@@ -63,30 +63,26 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   color: #ffffff;
 }
 
-/* ================= Ambient Layer Theme Visibility ================= */
-.ambient-light-layer {
-  display: block;
+/* ================= Ambient Layer Theme Visibility (Smooth Cross-fade) ================= */
+.ambient-light-layer,
+.ambient-dark-layer,
+.ambient-apple-layer {
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: opacity;
+  pointer-events: none !important;
 }
 
-html.dark .ambient-light-layer,
-html.apple .ambient-light-layer {
-  display: none !important;
-}
-
-.ambient-dark-layer {
-  display: none;
+html:not(.dark):not(.apple) .ambient-light-layer {
+  opacity: 1 !important;
 }
 
 html.dark .ambient-dark-layer {
-  display: block !important;
-}
-
-.ambient-apple-layer {
-  display: none;
+  opacity: 1 !important;
 }
 
 html.apple .ambient-apple-layer {
-  display: block !important;
+  opacity: 1 !important;
 }
 
 /* ================= Apple Theme Base Settings ================= */
@@ -120,6 +116,11 @@ html.apple ::-webkit-scrollbar-thumb:hover {
    - Pure translucent glass so the background gradient shows through
    - High backdrop blur to keep card text crisp, high-contrast and prominent
    ========================================================================= */
+
+/* Default Navbar Border (Pure transparent white baseline to prevent dark flash during Apple theme transition) */
+nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
+}
 
 /* Liquid Glass Navbar in Apple theme */
 html.apple nav {
@@ -398,11 +399,12 @@ html.theme-transitioning h5,
 html.theme-transitioning h6,
 html.theme-transitioning a,
 html.theme-transitioning svg {
-  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              fill 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: background-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              fill 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .theme-toggle-indicator {
