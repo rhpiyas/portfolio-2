@@ -1,62 +1,77 @@
 "use client";
 
-import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon, Apple } from "lucide-react";
+import { useTheme, Theme } from "@/context/ThemeContext";
+import { Moon, Sun, Apple } from "lucide-react";
 
 interface ThemeToggleProps {
   className?: string;
 }
 
+const themeOptions: {
+  id: Theme;
+  label: string;
+  icon: typeof Moon;
+  activeColor: string;
+}[] = [
+  {
+    id: "dark",
+    label: "Dark theme",
+    icon: Moon,
+    activeColor: "text-amber-300",
+  },
+  {
+    id: "light",
+    label: "Light theme",
+    icon: Sun,
+    activeColor: "text-amber-500",
+  },
+  {
+    id: "apple",
+    label: "Apple liquid glass theme",
+    icon: Apple,
+    activeColor: "text-cyan-600 dark:text-cyan-400",
+  },
+];
+
 export default function ThemeToggle({ className = "" }: ThemeToggleProps) {
-  const { theme, toggleTheme, mounted } = useTheme();
+  const { theme, setTheme, mounted } = useTheme();
 
   if (!mounted) {
     return (
       <div
-        className={`w-9 h-9 rounded-xl border border-transparent ${className}`}
+        className={`w-24 h-8 ${className}`}
         aria-hidden="true"
       />
     );
   }
 
-  const getThemeInfo = () => {
-    if (theme === "dark") {
-      return {
-        label: "Dark Mode (Click for Light Mode)",
-        className:
-          "border-white/10 bg-white/[0.06] text-amber-300 hover:bg-white/[0.12] hover:text-amber-200 hover:border-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]",
-        icon: <Moon size={17} className="transition-transform duration-300 -rotate-12 hover:rotate-0" />,
-      };
-    }
-    if (theme === "light") {
-      return {
-        label: "Light Mode (Click for Apple Liquid Glass Theme)",
-        className:
-          "border-slate-900/[0.08] bg-slate-900/[0.04] text-slate-700 hover:bg-slate-900/[0.08] hover:text-blue-600 hover:border-slate-900/[0.14] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]",
-        icon: <Sun size={17} className="transition-transform duration-300 rotate-0 hover:rotate-45" />,
-      };
-    }
-    // Apple Glass Theme
-    return {
-      label: "Apple Liquid Glass Theme (Click for Dark Mode)",
-      className:
-        "border-cyan-400/50 bg-cyan-500/[0.12] text-cyan-600 hover:bg-cyan-500/[0.22] hover:text-cyan-700 hover:border-cyan-400/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_14px_rgba(6,182,212,0.3)]",
-      icon: <Apple size={17} className="transition-transform duration-300 hover:scale-110" />,
-    };
-  };
-
-  const current = getThemeInfo();
-
   return (
-    <button
-      onClick={toggleTheme}
-      type="button"
-      aria-label={current.label}
-      title={current.label}
-      className={`relative inline-flex items-center justify-center w-9 h-9 rounded-xl border transition-all duration-200 cursor-pointer select-none backdrop-blur-md ${current.className} ${className}`}
+    <div
+      role="radiogroup"
+      aria-label="Theme switcher"
+      className={`flex items-center gap-1 ${className}`}
     >
-      {current.icon}
-    </button>
+      {themeOptions.map(({ id, label, icon: Icon, activeColor }) => {
+        const isActive = theme === id;
+        return (
+          <button
+            key={id}
+            onClick={() => setTheme(id)}
+            type="button"
+            role="radio"
+            aria-checked={isActive}
+            aria-label={label}
+            title={`${label}${isActive ? " (Active)" : ""}`}
+            className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all duration-200 cursor-pointer ${
+              isActive
+                ? `border border-slate-300 dark:border-slate-700 bg-slate-900/[0.04] dark:bg-white/[0.06] ${activeColor}`
+                : "border border-transparent text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
+            }`}
+          >
+            <Icon size={16} />
+          </button>
+        );
+      })}
+    </div>
   );
 }
-
