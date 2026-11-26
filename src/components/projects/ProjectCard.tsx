@@ -13,11 +13,11 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div
-      className="group flex flex-col justify-between rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 overflow-hidden shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-xl hover:-translate-y-1"
+      className="group flex flex-col justify-between h-full rounded-2xl bg-white dark:bg-[#0e1624] border border-slate-200 dark:border-slate-800/80 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 overflow-hidden shadow-sm dark:shadow-lg hover:shadow-md dark:hover:shadow-xl hover:-translate-y-1"
     >
-      <div>
+      <div className="flex-1 flex flex-col">
         {/* Project Thumbnail */}
-        <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-slate-950 overflow-hidden border-b border-slate-100 dark:border-slate-800/60">
+        <div className="relative aspect-[16/10] w-full bg-slate-100 dark:bg-slate-950 overflow-hidden border-b border-slate-100 dark:border-slate-800/60 shrink-0">
           <Image
             src={project.thumbnail}
             alt={project.name}
@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Content Body */}
-        <div className="p-5 sm:p-6">
+        <div className="p-5 sm:p-6 flex-1 flex flex-col">
           <div className="flex items-center justify-between gap-2 mb-2">
             <Link
               href={`/projects/${project.slug}`}
@@ -40,14 +40,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             </Link>
           </div>
 
-          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-2 sm:line-clamp-3">
+          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
             {project.shortDescription}
           </p>
         </div>
       </div>
 
       {/* Card Footer with Links */}
-      <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-3 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/60 mt-auto text-xs text-slate-500 dark:text-slate-400">
+      <div className="px-5 sm:px-6 h-14 sm:h-16 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/60 mt-auto text-xs text-slate-500 dark:text-slate-400 shrink-0">
         <Link
           href={`/projects/${project.slug}`}
           className="inline-flex items-center gap-1.5 text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 font-medium transition-colors"
@@ -103,6 +103,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             >
               <BookOpen size={16} />
             </a>
+          )}
+
+          {!project.demoVideo && !project.github && !project.liveDemo && !project.researchPaper && project.status && (
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-cyan-50 dark:bg-cyan-950/50 text-cyan-700 dark:text-cyan-300 border border-cyan-200/60 dark:border-cyan-800/60 shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+              <span>{project.status}</span>
+            </span>
           )}
         </div>
       </div>

@@ -66,7 +66,8 @@ export const projects: Project[] = [
   {
     slug: "face-entry-pro",
     name: "Face Entry Pro",
-    shortDescription: "AI-Powered Biometric Attendance & Campus Security System.",
+    shortDescription:
+      "An AI-powered biometric attendance and campus intelligence system featuring facial recognition, liveness verification, and real-time security monitoring.",
     description:
       "FaceEntryPro is an AI-powered biometric attendance and campus intelligence system developed to modernize attendance management and enhance campus security. The system uses facial recognition technology to automatically identify students and record attendance without manual intervention. To ensure accuracy and prevent fraudulent attendance, it incorporates advanced features such as face enrollment, liveness detection, and anti-spoofing verification. Beyond attendance management, the system offers attendance history, report generation, real-time notifications, smart video search, incident detection, and security monitoring.\n\nIt is designed to support multiple user roles, including students, faculty members, parents, security officers, and administrators, providing each with role-based access and functionalities. By combining AI, computer vision, and intelligent surveillance, FaceEntryPro aims to create a faster, more secure, and efficient smart campus environment.",
     category: "academic",
